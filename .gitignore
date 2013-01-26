@@ -22,6 +22,8 @@ Library/*
 .DS_Store
 
 AssetServerCache*
+AssetServerCacheV3
+AssetVersioning.db
 Library/AssetImportState
 Library/AssetServerCacheV3
 Library/FailedAssetImports.txt
