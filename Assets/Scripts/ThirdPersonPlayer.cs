@@ -8,7 +8,7 @@ public class ThirdPersonPlayer : Entity
 {
 	public float grabDistance = 1f;
 	
-	public Light flashlight;
+	public List<Light> switchableLights;
 	
 	//The speed at which the character walks
 	public float walkSpeed = 2f;
@@ -144,7 +144,10 @@ public class ThirdPersonPlayer : Entity
 		
 		if( Input.GetButtonDown("Jump") )
 		{
-			flashlight.enabled = !flashlight.enabled;	
+			foreach( Light l in switchableLights )
+			{
+				l.enabled = !l.enabled;	
+			}
 		}
 	}
 		
