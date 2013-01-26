@@ -32,10 +32,11 @@ public class GoalBlock : TidyMapBoundObject
 		// empty
 	}
 	#endregion
-	
+	/*
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawSphere( transform.position, 1f );
 	}
+	*/
 }
