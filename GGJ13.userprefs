@@ -4,8 +4,8 @@
     <Files>
       <File FileName="Assets/Scripts/GoalBlock.cs" Line="1" Column="1" />
       <File FileName="Assets/Tidy Tile Mapper/Tidy Controllers/Controllers/EntityController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/Pings.cs" Line="6" Column="2" />
-      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/Pings.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="104" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
