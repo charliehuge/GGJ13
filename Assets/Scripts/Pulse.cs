@@ -38,12 +38,22 @@ public class Pulse : MonoBehaviour
 	
 	void Update()
 	{
-		float lerpAmt = ( Time.time - lastPulseTime ) / interval;
-		
-		if( lerpAmt > 1f )
-			Fire();
-		
-		transform.LookAt( playerTransform );
-		transform.position = Vector3.Lerp( startPos, playerTransform.position, lerpAmt );
+		float distance = Vector3.Distance( transform.parent.position, playerTransform.position );
+		if( distance > 2f )
+		{
+			pulseObject.SetActive( true );
+			
+			float lerpAmt = ( Time.time - lastPulseTime ) / interval;
+			
+			if( lerpAmt > 1f )
+				Fire();
+			
+			transform.LookAt( playerTransform );
+			transform.position = Vector3.Lerp( startPos, playerTransform.position, lerpAmt );
+		}
+		else
+		{
+			pulseObject.SetActive( false );	
+		}
 	}
 }
