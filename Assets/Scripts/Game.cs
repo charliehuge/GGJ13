@@ -16,6 +16,8 @@ public class Game : MonoBehaviour
 		get { return instance.hudSkin; }
 	}
 	
+	public Color ambientLight = Color.black;
+	
 	Level currentLevel;
 	int currentLevelIndex;
 	
@@ -35,6 +37,8 @@ public class Game : MonoBehaviour
 	
 	void Start()
 	{
+		RenderSettings.ambientLight = ambientLight;
+		
 		if( !debug )
 			LoadLevel( mapCurve, 0 );	
 	}
