@@ -113,7 +113,7 @@ public class ThirdPersonPlayer : Entity {
 	
 	//Update the falling flags for the character
 	void UpdateGravity(){
-		isFalling = (cc.collisionFlags & CollisionFlags.Below) == 0;
+		isFalling = cc != null && (cc.collisionFlags & CollisionFlags.Below) == 0;
 	}
 	
 	void HandleInput(){
@@ -162,7 +162,7 @@ public class ThirdPersonPlayer : Entity {
 				return;
 			}
 		}
-		
+		if(cc == null) return;
 		cc.Move(movement);			
 	}
 	
