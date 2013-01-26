@@ -1,0 +1,3 @@
+*.asset text diff whitespace -crlf
+*.meta text diff whitespace -crlf
+*.unity text diff whitespace -crlf

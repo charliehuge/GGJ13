@@ -19,7 +19,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -74,47 +74,56 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &184485711
+--- !u!1 &743819759
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 184485712}
-  - 20: {fileID: 184485713}
-  - 124: {fileID: 184485716}
-  - 92: {fileID: 184485715}
-  - 81: {fileID: 184485714}
-  - 114: {fileID: 184485717}
+  - 4: {fileID: 743819764}
+  - 20: {fileID: 743819763}
+  - 92: {fileID: 743819762}
+  - 124: {fileID: 743819761}
+  - 81: {fileID: 743819760}
   m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: Main Camera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &184485712
-Transform:
+--- !u!81 &743819760
+AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
-  m_LocalRotation: {x: .000110017565, y: -.999870062, z: .00780897215, w: .0141058397}
-  m_LocalPosition: {x: 5.89508152, y: .170613825, z: 11.2944679}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!20 &184485713
+  m_GameObject: {fileID: 743819759}
+  m_Enabled: 1
+--- !u!124 &743819761
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743819759}
+  m_Enabled: 1
+--- !u!92 &743819762
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743819759}
+  m_Enabled: 1
+--- !u!20 &743819763
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
+  m_GameObject: {fileID: 743819759}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .137669891, g: .383053631, b: .768656731, a: .0196078438}
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -126,52 +135,21 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 100
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
---- !u!81 &184485714
-AudioListener:
+--- !u!4 &743819764
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
-  m_Enabled: 1
---- !u!92 &184485715
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
-  m_Enabled: 1
---- !u!124 &184485716
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
-  m_Enabled: 1
---- !u!114 &184485717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184485711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e57f0b9c503bcf4c8ac5325cda83c09, type: 3}
-  m_Name: 
-  mapName: Demo Level
-  tileSize: {x: 1, y: 1, z: 1}
-  chunkWidth: 5
-  chunkHeight: 5
-  growthAxis: 1
-  levelWidth: 50
-  levelHeight: 10
-  levelDepth: 1
-  blockPrefab: {fileID: 0}
-  randomiseInitialMap: 1
-  useEmptyBlocks: 0
+  m_GameObject: {fileID: 743819759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
