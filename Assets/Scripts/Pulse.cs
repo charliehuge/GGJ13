@@ -9,7 +9,7 @@ public class Pulse : MonoBehaviour
 	GameObject pulseObject;
 	float lastPulseTime;
 	
-	Vector3 startPos, targetPos;
+	Vector3 startPos;
 	
 	Transform playerTransform;
 	
@@ -32,7 +32,6 @@ public class Pulse : MonoBehaviour
 	{
 		lastPulseTime = Time.time;
 		startPos = transform.parent.position;
-		targetPos = playerTransform.position;
 		transform.LookAt( playerTransform );
 	}
 	
