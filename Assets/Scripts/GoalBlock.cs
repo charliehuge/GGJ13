@@ -17,16 +17,14 @@ public class GoalBlock : TidyMapBoundObject
 		
 		instance = this;
 	}
-	
+		
 	#region implemented abstract members of TidyMapBoundObject
 	public override void OnObjectEnterBlock (Block b, TidyMapBoundObject e)
 	{
-		/*
 		if( e is ThirdPersonPlayer )
 		{
 			Game.FinishCurrentLevel();
 		}
-		*/
 	}
 
 	public override void OnObjectExitBlock (Block b, TidyMapBoundObject e)
@@ -34,4 +32,6 @@ public class GoalBlock : TidyMapBoundObject
 		// empty
 	}
 	#endregion
+	
+	
 }
