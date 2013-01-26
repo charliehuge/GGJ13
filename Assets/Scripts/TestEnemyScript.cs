@@ -13,10 +13,10 @@ public class TestEnemyScript : MonoBehaviour {
 	{
 		
 		if(foundPlayer){
-			Debug.Log ("Found player");
+			Debug.LogError ("Found player");
 			//seek out player for ... pinging
 		}else{
-			Debug.Log ("lost player");
+			Debug.LogError ("lost player");
 			//we lost player, wander around again
 		}
 		

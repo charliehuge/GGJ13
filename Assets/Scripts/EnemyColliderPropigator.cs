@@ -5,18 +5,26 @@ using System.Collections.Generic;
 
 public class EnemyColliderPropigator : MonoBehaviour 
 {
+	public Entity playerEntity;
+	public GameObject playerObj;
 	public Action<bool> CollisionPropigate;
 	
-	void OnCollisionEnter(Collision collisionInfo)
+	void Start()
 	{
-		if(collisionInfo.gameObject.tag.Contains("Player")){
+		playerEntity = EntityController.GetInstance().playerEntity;
+		playerObj = playerEntity.gameObject;
+	}
+	
+	void OnTriggerEnter (Collision collisionInfo)
+	{
+		if(collisionInfo.gameObject == playerObj){
 			CollisionPropigate(true);
 		}
 	}
 	
-	void OnCollisionExit(Collision collisionInfo) 
+	void OnTriggerExit(Collision collisionInfo) 
 	{
-		if(collisionInfo.gameObject.tag.Contains("Player")){
+		if(collisionInfo.gameObject == playerObj){
 			CollisionPropigate(false);
 		}
 	}
