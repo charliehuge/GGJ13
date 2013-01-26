@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ping_Friendly
+  m_Name: Ping_Enemy
   m_Shader: {fileID: 200, guid: 0000000000000000e000000000000000, type: 0}
   m_SavedProperties:
     serializedVersion: 2
@@ -65,4 +65,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .0909091234, g: 1, b: 0, a: .501960814}
+        second: {r: 1, g: 0, b: 0, a: .501960814}
