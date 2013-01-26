@@ -304,7 +304,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100036
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -313,6 +313,21 @@ GameObject:
   - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Character_output01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400038}
+  m_Layer: 0
+  m_Name: ModelScaling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,11 +373,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.5179253, y: -.613793135, z: -11.2686949}
-  m_LocalScale: {x: .574999988, y: .574999988, z: .574999988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400036}
   - {fileID: 400004}
+  - {fileID: 400038}
   m_Father: {fileID: 0}
 --- !u!4 &400008
 Transform:
@@ -536,14 +551,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400034}
   - {fileID: 400032}
   - {fileID: 400030}
   - {fileID: 400028}
+  m_Father: {fileID: 400038}
+--- !u!4 &400038
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100038}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_Children:
+  - {fileID: 400036}
   m_Father: {fileID: 400006}
 --- !u!23 &2300000
 Renderer:
@@ -917,8 +944,8 @@ Light:
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: .974115431, g: 1, b: .768656731, a: 1}
-  m_Intensity: .850000024
-  m_Range: 2
+  m_Intensity: .400000006
+  m_Range: 4
   m_SpotAngle: 120.599998
   m_CookieSize: 10
   m_Shadows:
@@ -1036,12 +1063,12 @@ CharacterController:
   m_GameObject: {fileID: 100006}
   serializedVersion: 2
   m_Height: 1
-  m_Radius: .5
+  m_Radius: .25
   m_SlopeLimit: 45
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: -.200000003, z: 0}
+  m_Center: {x: 0, y: .49000001, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

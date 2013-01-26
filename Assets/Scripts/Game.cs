@@ -9,13 +9,7 @@ public class Game : MonoBehaviour
 	public bool debug = false;
 	
 	public MapCurve mapCurve;
-	
-	public GUISkin hudSkin;
-	public static GUISkin HUDSkin
-	{
-		get { return instance.hudSkin; }
-	}
-	
+		
 	public Color ambientLight = Color.black;
 	
 	Level currentLevel;

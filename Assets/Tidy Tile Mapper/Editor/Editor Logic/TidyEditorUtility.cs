@@ -21,7 +21,7 @@ namespace DopplerInteractive.TidyTileMapper.Utility{
 		public static string nullBlockName = "EmptyBlock";
 		public static string prefabPath = "Tidy Tile Mapper/Editor/Editor Prefabs";
 		public static string mapChunkPrefabName = "MapChunkPrefab.prefab";
-		public static string mapPath = "Tidy Tile Mapper/Maps";
+		public static string mapPath = "Maps/Baked";
 		public static string meshPath = "Tidy Tile Mapper/Maps/Backgrounds";
 		
 		public static string functionalObjectPath = "Tidy Tile Mapper/Functional Objects";

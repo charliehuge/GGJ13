@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0b4e3812c9e4dce94ab6c29893a7b0, type: 3}
+  m_Name: MainMapCurve
+  Levels:
+  - Name: 
+    IntroText: 
+    MapPrefab: {fileID: 11400052, guid: 378241edc6ec04f4ab3254574935d67a, type: 2}
+  - Name: 
+    IntroText: 
+    MapPrefab: {fileID: 11400506, guid: 587080d50f4ea4079b74ce62f04e4056, type: 2}
