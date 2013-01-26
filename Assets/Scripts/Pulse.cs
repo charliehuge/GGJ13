@@ -16,7 +16,12 @@ public class Pulse : MonoBehaviour
 	void Start()
 	{
 		if( pulseObject == null )
+		{
 			pulseObject = GameObject.Instantiate( prefab ) as GameObject;
+			pulseObject.transform.parent = transform;
+			pulseObject.transform.localPosition = prefab.transform.position;
+			pulseObject.transform.localRotation = Quaternion.identity;
+		}
 		if( playerTransform == null )
 			playerTransform = EntityController.GetInstance().playerEntity.transform;
 		
@@ -38,6 +43,7 @@ public class Pulse : MonoBehaviour
 		if( lerpAmt > 1f )
 			Fire();
 		
-		transform.position = Vector3.Lerp( startPos, targetPos, lerpAmt );
+		transform.LookAt( playerTransform );
+		transform.position = Vector3.Lerp( startPos, playerTransform.position, lerpAmt );
 	}
 }

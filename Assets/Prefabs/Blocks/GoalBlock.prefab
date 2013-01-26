@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cbe13d7d0fc4d92bb536836768db7f, type: 3}
   m_Name: 
   prefab: {fileID: 100000, guid: c48b2249838534eb8895194f0325d6c5, type: 2}
-  interval: 3
+  interval: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
