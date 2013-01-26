@@ -7,15 +7,24 @@ public class GoalBlock : TidyMapBoundObject
 	static GoalBlock instance;
 	public static GoalBlock Instance { get { return instance; } }
 	
+	void Awake()
+	{
+		if( instance != null )
+		{
+			GameObject.Destroy( gameObject );
+			return;
+		}
+		
+		instance = this;
+	}
+		
 	#region implemented abstract members of TidyMapBoundObject
 	public override void OnObjectEnterBlock (Block b, TidyMapBoundObject e)
 	{
-		/*
 		if( e is ThirdPersonPlayer )
 		{
 			Game.FinishCurrentLevel();
 		}
-		*/
 	}
 
 	public override void OnObjectExitBlock (Block b, TidyMapBoundObject e)
@@ -23,4 +32,11 @@ public class GoalBlock : TidyMapBoundObject
 		// empty
 	}
 	#endregion
+	/*
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawSphere( transform.position, 1f );
+	}
+	*/
 }

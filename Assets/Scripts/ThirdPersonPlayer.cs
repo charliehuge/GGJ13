@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using DopplerInteractive.TidyTileMapper.Utilities;
 
 [RequireComponent(typeof(CharacterController))]
-public class ThirdPersonPlayer : Entity {
+public class ThirdPersonPlayer : Entity 
+{
 	public float grabDistance = 1f;
 	
 	public Light flashlight;
@@ -31,6 +32,13 @@ public class ThirdPersonPlayer : Entity {
 	protected GameObject cameraRoot;
 	public float cameraDistance = 5.0f;
 	public float cameraHeightOffset = 1.0f;
+	
+	public float cameraSpeed = 1.0f; // units/sec
+	
+	public AnimationCurve camDistanceCurve;
+	public AnimationCurve camHeightCurve;
+	
+	private float currentCamLerp = 0.5f;
 	
 	#endregion
 	
@@ -97,6 +105,20 @@ public class ThirdPersonPlayer : Entity {
 		}
 		
 		cameraRoot.transform.position = transform.position;
+		
+		if( isMoving )
+			currentCamLerp -= Time.deltaTime * cameraSpeed;
+		else
+			currentCamLerp += Time.deltaTime * cameraSpeed;
+		
+		currentCamLerp = Mathf.Clamp( currentCamLerp, 0f, 1f );
+		
+		float camDistance, camHeight;
+		camDistance = camDistanceCurve.Evaluate( currentCamLerp );
+		camHeight = camHeightCurve.Evaluate( currentCamLerp );
+		playerCamera.transform.localPosition = new Vector3( 0, camHeight, -camDistance );
+		
+		playerCamera.transform.LookAt( transform );
 	}
 	
 	public override void OnUpdateEntity (float deltaTime)
@@ -113,7 +135,7 @@ public class ThirdPersonPlayer : Entity {
 	
 	//Update the falling flags for the character
 	void UpdateGravity(){
-		isFalling = cc != null && (cc.collisionFlags & CollisionFlags.Below) == 0;
+		isFalling = (cc.collisionFlags & CollisionFlags.Below) == 0;
 	}
 	
 	void HandleInput(){
@@ -136,97 +158,13 @@ public class ThirdPersonPlayer : Entity {
 		movement.z += walkSpeed * inputVector.y;
 		
 		Vector3 facingDir = Vector3.Normalize( new Vector3( movement.x, 0f, movement.z ) );
-		if( grabbedBlock == null && facingDir != Vector3.zero )
+		if( facingDir != Vector3.zero )
 		{
 			cc.transform.forward = facingDir;	
 		}
 		
 		movement *= deltaTime;
 		
-		// deal with blocks or normal movement
-		if( grabbedBlock != null )
-		{
-			if(Input.GetButton("Fire1"))
-			{
-				DoPushMove( movement );
-				return;
-			}
-			else
-				DropBlock();
-		}
-		else if( CheckForPushableBlock() )
-		{
-			if( Input.GetButton("Fire1") )
-			{
-				GrabBlock();
-				return;
-			}
-		}
-		if(cc == null) return;
 		cc.Move(movement);			
-	}
-	
-	void GrabBlock()
-	{
-		grabbedBlock = focusedBlock;
-		grabbedBlock.transform.parent = transform;
-	}
-	
-	void DropBlock()
-	{
-		grabbedBlock.transform.parent = grabbedBlock.parentMap.transform;
-		grabbedBlock = null;
-	}
-	
-	void DoPushMove( Vector3 movement )
-	{
-		// constrain to moving on the axis of the block
-		Vector3 dirToBlock = transform.position - grabbedBlock.transform.position;
-		
-		Vector3 moveScale;
-		if( Mathf.Abs( dirToBlock.x ) > Mathf.Abs( dirToBlock.z ) )
-			moveScale = new Vector3( 1, 0, 0 );
-		else
-			moveScale = new Vector3( 0, 0, 1 );
-		
-		Vector3 actualMove = Vector3.Scale( movement, moveScale );
-		cc.Move( actualMove );
-	}
-			
-	public bool CheckForPushableBlock()
-	{
-		Ray facingRay = new Ray( transform.position, transform.forward );
-		
-		RaycastHit hitInfo;
-		if( Physics.Raycast( facingRay, out hitInfo, grabDistance, 1 << LayerMask.NameToLayer("PushableBlocks") ) )
-		{
-			GameObject thing = hitInfo.collider.gameObject;
-			Debug.Log(thing.name);
-			PushableBlock pb = thing.GetComponent<PushableBlock>();
-			if( pb != null )
-			{
-				focusedBlock = pb;
-				return true;
-			}
-		}
-		
-		focusedBlock = null;
-		return false;
-	}
-	
-	void OnGUI()
-	{
-		if( focusedBlock != null && grabbedBlock == null )
-		{
-			GUI.Label( new Rect( Screen.width / 2 - 150f, 20f, 300f, 100f ), 
-				"Press Fire to grab", 
-				Game.HUDSkin.label );	
-		}
-	}
-	
-	void OnDrawGizmos()
-	{
-		Gizmos.color = Color.magenta;
-		Gizmos.DrawLine( transform.position, transform.position + transform.forward * grabDistance );	
 	}
 }
