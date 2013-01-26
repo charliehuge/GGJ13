@@ -5,6 +5,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 
+//uploads to http://techiealex.com/ggj13/ping.html
 public class CIEditor {
 
 	static string[] SCENES = FindEnabledEditorScenes();
