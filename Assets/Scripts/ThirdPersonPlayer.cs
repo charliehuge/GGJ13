@@ -7,6 +7,8 @@ using DopplerInteractive.TidyTileMapper.Utilities;
 public class ThirdPersonPlayer : Entity {
 	public float grabDistance = 1f;
 	
+	public Light flashlight;
+	
 	//The speed at which the character walks
 	public float walkSpeed = 2f;
 	//The speed at which the character falls
@@ -117,6 +119,11 @@ public class ThirdPersonPlayer : Entity {
 	void HandleInput(){
 		inputVector.x = Input.GetAxis("Horizontal");
 		inputVector.y = Input.GetAxis ("Vertical");
+		
+		if( Input.GetButtonDown("Jump") )
+		{
+			flashlight.enabled = !flashlight.enabled;	
+		}
 	}
 		
 	void UpdateMovement(float deltaTime)
