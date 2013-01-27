@@ -18,9 +18,12 @@ public class EnemyColliderPropigator : MonoBehaviour
 	{
 		if(playerEntity == null){
 			playerEntity = EntityController.GetInstance().playerEntity;
-			if(playerEntity != null && playerObj == null)
-				playerObj = playerEntity.gameObject;
+			if(playerEntity == null){
+				Debug.LogError("Lolwut");
+			}
 		}
+		if(playerEntity != null && playerObj == null)
+				playerObj = playerEntity.gameObject;
 	}
 	
 	void OnTriggerEnter (Collider collisionInfo)
