@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
 	
 	void Awake()
 	{
+		Application.targetFrameRate = 60;
 		if( instance != null )
 		{
 			Debug.LogError( "There can only be one game. Deleting.");
