@@ -15,7 +15,7 @@ public class ThirdPersonPlayer : Entity
 	[HideInInspector]
 	public float totalHearingRadius;
 	
-	public List<Light> switchableLights;
+	public List<GameObject> switchableLights;
 	
 	//The speed at which the character walks
 	public float walkSpeed = 2f;
@@ -177,11 +177,11 @@ public class ThirdPersonPlayer : Entity
 		
 		if( Input.GetButtonDown("Jump") )
 		{
-			lightIsOn = !switchableLights[0].enabled;
+			lightIsOn = !switchableLights[0].activeSelf;
 			
-			foreach( Light l in switchableLights )
+			foreach( GameObject l in switchableLights )
 			{
-				l.enabled = lightIsOn;	
+				l.SetActive( lightIsOn );	
 			}
 		}
 	}

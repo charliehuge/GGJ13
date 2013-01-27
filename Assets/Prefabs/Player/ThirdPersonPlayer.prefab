@@ -3738,12 +3738,21 @@ MonoBehaviour:
   lightOffHearingRadius: 2
   totalHearingRadius: 0
   switchableLights:
-  - {fileID: 10800002}
-  - {fileID: 10800000}
+  - {fileID: 100040}
+  - {fileID: 100252}
+  - {fileID: 100004}
+  - {fileID: 100250}
+  - {fileID: 100254}
+  - {fileID: 100194}
+  - {fileID: 100228}
+  - {fileID: 100224}
+  - {fileID: 100208}
+  - {fileID: 100232}
   walkSpeed: 2
   gravity: 9.80000019
   bindCameraToPlayer: 1
   camLookAt: {fileID: 400042}
+  heightBuffer: .100000001
   cameraSpeedIn: .400000006
   cameraSpeedOut: .100000001
   camDistanceCurve:
@@ -3790,6 +3799,7 @@ MonoBehaviour:
   computer: {fileID: 11400004}
   character: {fileID: 14300000}
   mode: 0
+  cameraHook: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
