@@ -19,7 +19,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 		if(playerEntity == null){
 			playerEntity = EntityController.GetInstance().playerEntity;
 			if(playerEntity == null){
-				Debug.LogError("Lolwut");
+				//Debug.LogError("Lolwut");
 			}
 		}
 		if(playerEntity != null && playerObj == null)
