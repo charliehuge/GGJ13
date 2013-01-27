@@ -20,7 +20,7 @@ public abstract class PatrollingEntity : Entity
 	public bool randomiseInitialDirection = false;
 	
 	Vector3 sourcePosition;
-	Vector3 targetPosition;
+	public Vector3 targetPosition;
 	Vector3 targetCoords;
 	
 	//Relative to map tiling
@@ -86,6 +86,8 @@ public abstract class PatrollingEntity : Entity
 	}
 	
 	protected bool CanMoveTo(int x, int y, int z){
+		
+		//Debug.Log ("Calling canmoveTo: " + x + "," + y + "," + z);
 		
 		if(!BlockUtilities.IsWithinMapBounds(parentMap,x,y,z)){
 			return false;

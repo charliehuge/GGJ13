@@ -15,17 +15,19 @@ public class EnemyColliderPropigator : MonoBehaviour
 		playerObj = playerEntity.gameObject;
 	}
 	
-	void OnTriggerEnter (Collision collisionInfo)
+	void OnTriggerEnter (Collider collisionInfo)
 	{
 		if(collisionInfo.gameObject == playerObj){
 			CollisionPropigate(true);
 		}
+		//Debug.Log ("Collided with : " + collisionInfo.gameObject.name);
 	}
 	
-	void OnTriggerExit(Collision collisionInfo) 
+	void OnTriggerExit(Collider collisionInfo) 
 	{
 		if(collisionInfo.gameObject == playerObj){
 			CollisionPropigate(false);
 		}
+		//Debug.Log ("stopped colliding with : " + collisionInfo.gameObject.name);
 	}
 }
