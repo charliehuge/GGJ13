@@ -8,6 +8,7 @@ public class LevelDefinition
 	public string Name = "New Level";
 	public string IntroText = "Some intro text";
 	public bool IsEndCredits = false;
+	public bool IsIntro = false;
 	public BlockMap MapPrefab;
 }
 
@@ -43,6 +44,10 @@ public class Level
 		if( definition.IsEndCredits )
 		{
 			PingGUI.RollCredits();
+		}
+		if( definition.IsIntro )
+		{
+			PingGUI.DoIntro();	
 		}
 		else
 		{

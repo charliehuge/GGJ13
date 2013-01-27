@@ -6,6 +6,7 @@ public class PingGUI : MonoBehaviour {
 	
 	public PopupText popupText;
 	public EndCredits endCredits;
+	public Intro intro;
 	
 	void Awake()
 	{
@@ -26,5 +27,10 @@ public class PingGUI : MonoBehaviour {
 	public static void RollCredits()
 	{
 		instance.endCredits.Go();	
+	}
+	
+	public static void DoIntro()
+	{
+		instance.intro.Go();
 	}
 }
