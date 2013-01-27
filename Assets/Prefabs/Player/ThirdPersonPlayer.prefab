@@ -349,6 +349,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400042}
+  m_Layer: 0
+  m_Name: _lookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -585,6 +600,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
+  - {fileID: 400042}
   - {fileID: 400004}
   - {fileID: 400036}
   - {fileID: 400040}
@@ -598,6 +614,17 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 7.54979013e-08}
   m_LocalPosition: {x: -.26852867, y: 3.1792326, z: .468743056}
   m_LocalScale: {x: 4, y: 4, z: 4}
+  m_Children: []
+  m_Father: {fileID: 400038}
+--- !u!4 &400042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.41204262, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
 --- !u!23 &2300000
@@ -1087,16 +1114,16 @@ MonoBehaviour:
   walkSpeed: 2
   gravity: 9.80000019
   bindCameraToPlayer: 1
-  cameraDistance: 4
-  cameraHeightOffset: 4
-  cameraSpeed: .300000012
+  camLookAt: {fileID: 400042}
+  cameraSpeedIn: .400000006
+  cameraSpeedOut: .100000001
   camDistanceCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 2.00906467
-      inSlope: 0
-      outSlope: 0
+    - time: -.00171763729
+      value: .742259562
+      inSlope: -.09233246
+      outSlope: -.09233246
       tangentMode: 0
     - time: .996448338
       value: 5.99412394
@@ -1108,8 +1135,8 @@ MonoBehaviour:
   camHeightCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 2.32830644e-10
-      value: 1.00671422
+    - time: .0011328687
+      value: .940805197
       inSlope: 0
       outSlope: 0
       tangentMode: 0
