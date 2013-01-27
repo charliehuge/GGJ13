@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7cbe13d7d0fc4d92bb536836768db7f, type: 3}
   m_Name: 
-  sound: {fileID: 8300000, guid: b5083cfe83bb875479bd797c61594131, type: 3}
+  sound: {fileID: 8300000, guid: 0be1fa16b22a247cf9ba2b20b0b4aff5, type: 3}
   displayParent: {fileID: 100002}
   minDistance: 2
   interval: 3
