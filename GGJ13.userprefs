@@ -1,9 +1,21 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EndCredits.cs">
     <Files>
       <File FileName="Assets/AddStuffToMe.cs" Line="10" Column="67" />
       <File FileName="Assets/EndCredits.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RootMotionCharacter.cs">
+    <Files>
+      <File FileName="Assets/Tidy Tile Mapper/Tidy Controllers/Controllers/Entity.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GoalBlock.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Pulse.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PulseRing.cs" Line="74" Column="15" />
+      <File FileName="Assets/Scripts/RootMotionComputer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RootMotionCharacter.cs" Line="25" Column="1" />
+>>>>>>> 1296f24ac8d973ad53bbf0110b901a310ad69c91
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,6 +24,10 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="GUI" expanded="True" />
+<<<<<<< HEAD
+=======
+                <Node name="RootMotionCharacter.cs" selected="True" />
+>>>>>>> 1296f24ac8d973ad53bbf0110b901a310ad69c91
               </Node>
               <Node name="Tidy Tile Mapper" expanded="True">
                 <Node name="Tidy Controllers" expanded="True">

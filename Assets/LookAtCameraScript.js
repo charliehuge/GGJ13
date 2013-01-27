@@ -1,7 +1,7 @@
 #pragma strict
 
-var objectLink : Transform;
-var target : Transform;
+//var objectLink : Transform;
+//var target : Transform;
 var targetLock : boolean;
 
 internal var startRotation : Quaternion;
@@ -20,7 +20,7 @@ function Update () {
 function lookAtCamera () {
     //transform.LookAt(target);
 
-    var relativePos : Vector3 = target.position - transform.position;
+    var relativePos : Vector3 = Camera.main.transform.position - transform.position;
     //print("ROTATION: " + Quaternion.LookRotation(relativePos).eulerAngles.y);
     var yRotation : float = Quaternion.LookRotation(relativePos).eulerAngles.y;
 
@@ -30,6 +30,6 @@ function lookAtCamera () {
 
 function moveObject () {
 	if(targetLock) {
-		transform.position = Vector3(objectLink.position.x, objectLink.position.y, objectLink.position.z);
+		//transform.position = Vector3(objectLink.position.x, objectLink.position.y, objectLink.position.z);
 	}
 }
