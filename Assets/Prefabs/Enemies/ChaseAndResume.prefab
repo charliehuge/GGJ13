@@ -169,6 +169,8 @@ MonoBehaviour:
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
   destroyWhenStreaming: 1
+  pulsePrefab: {fileID: 11400000, guid: 28e663aadcb734266a63aa0e590f6346, type: 2}
+  pulseRange: 5
   entityType: Default
   anim_idle:
     animationTarget: {fileID: 0}
