@@ -5,19 +5,54 @@ using System.Collections.Generic;
 
 public class EnemyColliderPropigator : MonoBehaviour 
 {
+	public Entity playerEntity;
+	public GameObject playerObj;
 	public Action<bool> CollisionPropigate;
 	
-	void OnCollisionEnter(Collision collisionInfo)
+	void Start()
 	{
-		if(collisionInfo.gameObject.tag.Contains("Player")){
-			CollisionPropigate(true);
+		Init ();
+	}
+	
+	public void Init()
+	{
+		if(playerEntity == null){
+			playerEntity = EntityController.GetInstance().playerEntity;
+			if(playerObj == null)
+				playerObj = playerEntity.gameObject;
 		}
 	}
 	
-	void OnCollisionExit(Collision collisionInfo) 
+	void OnTriggerEnter (Collider collisionInfo)
 	{
-		if(collisionInfo.gameObject.tag.Contains("Player")){
-			CollisionPropigate(false);
+		Debug.LogError("detected player in collider");
+		Init ();
+		
+		if(collisionInfo.gameObject == playerObj){
+			if(CollisionPropigate != null)
+				CollisionPropigate(true);
+		}
+		//Debug.Log ("Collided with : " + collisionInfo.gameObject.name);
+	}
+	
+	void OnTriggerExit(Collider collisionInfo) 
+	{
+		Debug.LogError("lost player in collider");
+		Init ();
+		
+		if(collisionInfo.gameObject == playerObj){
+			if(CollisionPropigate != null)
+				CollisionPropigate(false);
+		}
+		//Debug.Log ("stopped colliding with : " + collisionInfo.gameObject.name);
+	}
+	/*
+	void OnTriggerStay (Collider other)
+	{
+		if(collisionInfo.gameObject == playerObj){
+			if(CollisionPropigate != null)
+				CollisionPropigate(false);
 		}
 	}
+	*/
 }
