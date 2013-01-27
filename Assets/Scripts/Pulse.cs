@@ -38,8 +38,11 @@ public class Pulse : MonoBehaviour
 	
 	bool IsInRange()
 	{
-		return ( range <= 0f ) 
-			|| Vector3.Distance( transform.position, playerTransform.position ) < range;	
+		if( range <= 0f ) return true;
+		
+		float d = Vector3.Distance( transform.position, playerTransform.position );
+		d -= playerTransform.gameObject.GetComponent<ThirdPersonPlayer>().totalHearingRadius;
+		return d < range;
 	}
 	
 	void Fire()

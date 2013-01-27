@@ -6,7 +6,14 @@ using DopplerInteractive.TidyTileMapper.Utilities;
 [RequireComponent(typeof(CharacterController))]
 public class ThirdPersonPlayer : Entity 
 {
-	public float grabDistance = 1f;
+	public float baseHearingRadius = 2f;
+	public float stillHearingRadius = 2f;
+	public float lightOffHearingRadius = 2f;
+	
+	bool lightIsOn = true;
+	
+	[HideInInspector]
+	public float totalHearingRadius;
 	
 	public List<Light> switchableLights;
 	
@@ -139,6 +146,17 @@ public class ThirdPersonPlayer : Entity
 		bool moving = inputVector != Vector2.zero;
 		SetIsIdle( !moving );
 		SetIsMoving( moving );
+		
+		UpdateHearingRadius();
+	}
+	
+	void UpdateHearingRadius()
+	{
+		totalHearingRadius = baseHearingRadius;
+		if( !lightIsOn )
+			totalHearingRadius += lightOffHearingRadius;
+		if( !isMoving )
+			totalHearingRadius += stillHearingRadius;
 	}
 	
 	//Update the falling flags for the character
@@ -152,9 +170,11 @@ public class ThirdPersonPlayer : Entity
 		
 		if( Input.GetButtonDown("Jump") )
 		{
+			lightIsOn = !switchableLights[0].enabled;
+			
 			foreach( Light l in switchableLights )
 			{
-				l.enabled = !l.enabled;	
+				l.enabled = lightIsOn;	
 			}
 		}
 	}
@@ -177,5 +197,12 @@ public class ThirdPersonPlayer : Entity
 		movement *= deltaTime;
 		
 		cc.Move(movement);			
+	}
+	
+	void OnDrawGizmos()
+	{
+		Debug.Log("blah " + totalHearingRadius);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawWireSphere( transform.position, totalHearingRadius );
 	}
 }
