@@ -94,7 +94,7 @@ public class ChaseAndResume : PathingEntity {
 			Debug.Log ("Not repathing, since we're chasing player");
 			return;
 		}
-		Debug.Log ("REpath");
+		//Debug.Log ("REpath");
 		//return;
 		List<Vector3> b = new List<Vector3>();
 		

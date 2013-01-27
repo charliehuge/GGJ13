@@ -312,19 +312,19 @@ public class Entity : TidyMapBoundObject {
 		
 		if( Mathf.Abs(playerEntity.x - this.x) < 2 && Mathf.Abs(playerEntity.y - this.y) < 2){
 			RaycastHit hit;
-			Vector3 direction = playerEntity.transform.position - transform.position;
-			if(Physics.Raycast (this.transform.position,direction ,out hit)){
-				/*if(hit.collider == playerEntity.collider){
-					Debug.LogError("You died");
-					//PingGUI.PopupText("You died");
-					return true;
+			Vector3 direction = playerEntity.transform.position - transform.position;  // I strongly suspect this is incorrect
+			
+			RaycastHit[] hits = Physics.RaycastAll(this.transform.position,direction, Vector3.Distance(playerEntity.transform.position,transform.position));
+			foreach(RaycastHit hit2 in hits){
+				if(hit2.collider.gameObject.name.Contains("Wall")){
+					return false;
 				}
-				Debug.LogError("Actual hit owner was : " + hit.collider.gameObject);
-				Debug.LogWarning("You Might have died: " + Mathf.Abs(playerEntity.x - this.x) + "-" + playerEntity.x + " and " + this.x +  " vs " + Mathf.Abs(playerEntity.y - this.y)  + "-" + playerEntity.y + " and " + this.y);
-				*/
-				//lazy until I figure out how to wade through unordered colliders
-				return true;
+				Debug.Log ("raycast hit non-terminal: " + hit2.collider.gameObject.name);
 			}
+			
+			
+			return true;
+			
 			
 		}
 		
