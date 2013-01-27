@@ -42,7 +42,7 @@ public class ChaseAndResume : PathingEntity {
 		chasingPlayer = true;
 		
 		Vector3 lastPlayerMapIndex = new Vector3(EntityController.GetInstance().playerEntity.x,EntityController.GetInstance().playerEntity.y,EntityController.GetInstance().playerEntity.z);
-		Debug.Log ("Player index: " + lastPlayerMapIndex);
+		//Debug.LogError ("Player index: " + lastPlayerMapIndex);
 		
 		if(foundPlayer){
 			targetBeforeChasingPlayer = targetPosition; //TODO: make sure this is always from 
@@ -54,11 +54,11 @@ public class ChaseAndResume : PathingEntity {
 				}
 			}
 			
-			Debug.LogError ("Found player");
+			Debug.Log ("Found player");
 			//seek out player for ... pinging
 			//Debug.Log ("block next to player: " + findOpenBlockAdjacentToPlayer());
 		}else{
-			Debug.LogError ("lost player");
+			Debug.Log ("lost player");
 			//we lost player, wander around again, maybe after a delay
 		}
 		
@@ -75,7 +75,8 @@ public class ChaseAndResume : PathingEntity {
 				//PathTo(targetBeforeChasingPlayer);  //swap back the regular patrol path end
 			}
 		//if it's been 3 seconds since we've seen the player and/or they're still in our line of sight
-		if(chasingPlayer &&  (playerInSensor == false && lastTimeDetectedPlayer < Time.time - 3f)){
+		//if(chasingPlayer &&  (playerInSensor == false && lastTimeDetectedPlayer < Time.time - 3f)){
+		if(consideredChasingAfterPlayer()){
 			chasingPlayer = false;
 			if(targetBeforeChasingPlayer != null){
 				PathTo((int)targetBeforeChasingPlayer.Value.x,(int)targetBeforeChasingPlayer.Value.y,(int)targetBeforeChasingPlayer.Value.z);
@@ -84,9 +85,17 @@ public class ChaseAndResume : PathingEntity {
 			}
 		}
 	}
-	
+	public bool consideredChasingAfterPlayer()
+	{
+		return (chasingPlayer &&  (playerInSensor == false && lastTimeDetectedPlayer < Time.time - 3f));
+	}
 	public void RandomPathing(){
-		//Debug.Log ("REpath");
+		if(consideredChasingAfterPlayer()){
+			Debug.Log ("Not repathing, since we're chasing player");
+			return;
+		}
+		Debug.Log ("REpath");
+		//return;
 		List<Vector3> b = new List<Vector3>();
 		
 		for(int px = x - pathRadius; px <= x + pathRadius; px++){
@@ -94,7 +103,7 @@ public class ChaseAndResume : PathingEntity {
 				if(CanWalkTo(px,py,z)){
 					b.Add(new Vector3(px,py,z));
 				}
-			}	
+			}
 		}
 		
 		if(b.Count <= 0){

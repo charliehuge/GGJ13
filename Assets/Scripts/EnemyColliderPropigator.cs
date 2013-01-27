@@ -28,7 +28,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 	
 	void OnTriggerEnter (Collider collisionInfo)
 	{
-		Debug.LogError("detected player in collider");
+		//Debug.LogError("detected player in collider");
 		Init ();
 		
 		if(collisionInfo.gameObject == playerObj){
@@ -40,7 +40,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 	
 	void OnTriggerExit(Collider collisionInfo) 
 	{
-		Debug.LogError("lost player in collider");
+		//Debug.LogError("lost player in collider");
 		Init ();
 		
 		if(collisionInfo.gameObject == playerObj){
