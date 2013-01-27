@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TestEnemyScript : OCDPatrollingEntity {
 	public EnemyColliderPropigator playerDetector;
-	bool detectedPlayerThisFrame = false; 
 	float lastTimeDetectedPlayer = 0f;
 	bool playerInSensor = false;
 	bool chasingPlayer = false;  //we likely want to control how long we "remember" where to chase
@@ -14,16 +13,20 @@ public class TestEnemyScript : OCDPatrollingEntity {
 	
 	// Use this for initialization
 	void Start () {
-		playerDetector.CollisionPropigate =(bool foo)=>{};
-		//playerDetector.CollisionPropigate = OnDetectedPlayer;
+		//playerDetector.CollisionPropigate =(bool foo)=>{};
+		playerDetector.CollisionPropigate = OnDetectedPlayer;
 		//findOpenBlockAdjacentToPlayer();
 	}
 	
-	/*public override void OnInitializeEntity ()
+	public override void OnInitializeEntity ()
 	{
-		//base.OnInitializeEntity();
+		base.OnInitializeEntity();
+		playerDetector.Init();
 		
-	}*/
+		/*if(playerDetector.collider.bounds.Contains(playerDetector.playerObj.transform.position)){
+			OnDetectedPlayer(true);
+		}*/
+	}
 	
 	bool CanMoveTo(Vector3 pos)
 	{
@@ -60,7 +63,6 @@ public class TestEnemyScript : OCDPatrollingEntity {
 	
 	void DoPlayerChase()
 	{
-		
 		Vector3 taretMapPos = findOpenBlockAdjacentToPlayer();
 		
 		
@@ -83,7 +85,6 @@ public class TestEnemyScript : OCDPatrollingEntity {
 	
 	void OnDetectedPlayer(bool foundPlayer)
 	{
-#if false
 		lastTimeDetectedPlayer = Time.time;
 		playerInSensor = foundPlayer;
 		chasingPlayer = true;
@@ -93,45 +94,109 @@ public class TestEnemyScript : OCDPatrollingEntity {
 		//DoPlayerChase();
 		
 		if(foundPlayer){
-			regularPatrolPathEnd = targetPosition;
+			regularPatrolPathEnd = targetPosition; //TODO: make sure this is always from 
 			
 			Debug.LogError ("Found player");
 			//seek out player for ... pinging
-			detectedPlayerThisFrame = true;
 			Debug.Log ("block next to player: " + findOpenBlockAdjacentToPlayer());
 		}else{
 			Debug.LogError ("lost player");
-			detectedPlayerThisFrame = false;
 			//we lost player, wander around again
 		}
-#endif
 	}
 	
-#if false
 	public override void OnReachBlockCenter (int x, int y, int z)
 	{
 		//base.ProcessPatrolNode();
 		
 		bool chaseNow = false;
 		if(chasingPlayer){
-			if(playerInSensor == false && lastTimeDetectedPlayer < Time.time - 3f){
+			if(playerInSensor == false /* && lastTimeDetectedPlayer < Time.time - 3f */){
 				chasingPlayer = false; //stop chasing them if we haven't seen them in 3 seconds
-				//ResumePatrol();
+				ResumePatrol();  //swap back the regular patrol path end
 			}else{
 				lastPlayerMapIndex = new Vector3(EntityController.GetInstance().playerEntity.x,EntityController.GetInstance().playerEntity.y,EntityController.GetInstance().playerEntity.z);
 				chaseNow = true;
 			}
 		}
-		
-		if(false){
+		//Debug.Log ("processign: target node: " + targetPosition);
+		if(chasingPlayer){
 			Debug.LogError("Chasing player");
 			DoPlayerChase();
-			base.ProcessPatrolNode();
+			//base.ProcessPatrolNode();
 		}else{
+			Debug.LogError("Not chasing player");
 			base.ProcessPatrolNode();
 			//base.ProcessPatrolNode();  // I think this should resume
 			//ProcessPatrolNode();
 		}
 	}
-#endif
+	
+	public override void ProcessPatrolNode(){
+		
+		sourcePosition = eTransform.localPosition;
+				
+		if(IsStuck()){
+			OnCannotMove(x,y,z);
+			return;
+		}
+		
+		if(patrolAxis == PatrolAxis.Horizontal){
+			targetCoords = new Vector3(x + currentDirection,y,z);
+			targetPosition = BlockUtilities.GetMathematicalPosition(parentMap,x + currentDirection,y,z);
+						
+		}
+		else if(patrolAxis == PatrolAxis.Vertical){
+			targetCoords = new Vector3(x,y+currentDirection,z);
+			targetPosition = BlockUtilities.GetMathematicalPosition(parentMap,x,y+currentDirection,z);
+			
+		}
+		
+		if(!CanMoveTo((int)targetCoords.x,(int)targetCoords.y,(int)targetCoords.z)){
+						
+			ReachEndOfPatrol(x,y,z);
+			
+			return;
+		}
+		controller.ReserveBlock(entityType,targetCoords);
+		
+		//Now decide where we're facing
+		int x_dir = x - (int)targetCoords.x;
+		int y_dir = (int)targetCoords.y - y;
+		
+		if(x_dir > 0){
+			eTransform.up = upDirection;
+			eTransform.forward = rightDirection;
+		}
+		else if(x_dir < 0){
+			eTransform.up = upDirection;
+			eTransform.forward = leftDirection;
+		}
+		else if(y_dir > 0){
+			
+			if(parentMap.growthAxis == BlockMap.GrowthAxis.Forward){
+				eTransform.forward = frontDirection;	
+			}
+			else{
+				eTransform.forward = downDirection;
+				Vector3 rot = eTransform.localRotation.eulerAngles;
+				rot.y = 0.0f;
+				eTransform.localRotation = Quaternion.Euler(rot);
+			}
+			
+		}
+		else if(y_dir < 0){
+			
+			if(parentMap.growthAxis == BlockMap.GrowthAxis.Forward){
+				eTransform.forward = backDirection;	
+			}
+			else{
+				eTransform.forward = upDirection;
+			}
+			
+		}
+		
+		SetIsMoving(true);
+		
+	}
 }

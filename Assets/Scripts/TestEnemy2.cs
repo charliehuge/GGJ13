@@ -8,8 +8,9 @@ public class TestEnemy2 : OCDPatrollingEntity {
 		base.OnInitializeEntity();
 	}
 	
-	public override void OnReachBlockCenter()
+	public override void OnReachBlockCenter(int x, int y, int z)
 	{
-		base.OnReachBlockCenter();
+		base.OnReachBlockCenter(x,y,z);
 	}
+
 }

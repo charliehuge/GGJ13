@@ -315,7 +315,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b634e08bda96dc4f9b475f0d629dc27, type: 3}
   m_Name: 
@@ -342,6 +342,7 @@ MonoBehaviour:
   timeToMoveSingleTile: 1
   initialDirection: 1
   randomiseInitialDirection: 0
+  targetPosition: {x: 0, y: 0, z: 0}
   idleTime: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -353,6 +354,31 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a38aea24945f471da3e7e9d053750f1, type: 3}
   m_Name: 
+  parentBlock: {fileID: 0}
+  parentMap: {fileID: 0}
+  destroyWhenStreaming: 1
+  entityType: 
+  anim_idle:
+    animationTarget: {fileID: 0}
+    animationName: 
+    normalizedAnimationSpeed: 1
+  anim_moving:
+    animationTarget: {fileID: 0}
+    animationName: 
+    normalizedAnimationSpeed: 1
+  isMoving: 0
+  isIdle: 0
+  automaticallyReservePosition: 1
+  initializeOnAwake: 1
+  x: 0
+  y: 0
+  z: 0
+  patrolAxis: 0
+  timeToMoveSingleTile: 1
+  initialDirection: 1
+  randomiseInitialDirection: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  idleTime: 0
   playerDetector: {fileID: 11400004}
 --- !u!114 &11400004
 MonoBehaviour:
