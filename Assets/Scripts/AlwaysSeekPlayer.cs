@@ -4,10 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class AlwaysSeekPlayer : PathingEntity {
-	public EnemyColliderPropigator playerDetector;
 	
 	void Start () {
-		playerDetector.CollisionPropigate =(bool foo)=>{}; //don't care
 	}
 	
 	public override void OnReachPathEnd (int x, int y, int z)
@@ -18,7 +16,6 @@ public class AlwaysSeekPlayer : PathingEntity {
 	public override void OnInitializeEntity ()
 	{
 		base.OnInitializeEntity();
-		playerDetector.Init();
 	}
 	
 }
