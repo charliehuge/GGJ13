@@ -122,10 +122,14 @@ public class Entity : TidyMapBoundObject {
 	
 	public virtual void OnDestroyEntity(){}
 	
+	//public PingGUI deathStuff;
 	void Update(){
 		/*if(eTransform == null){
 			InitializeEntity();
 		}*/
+		if(withinKillingRange()){
+			PingGUI.PopupText("You died :(");
+		}
 		if(eTransform != null)  //only update if we've been initialized
 			UpdateEntity (Time.deltaTime);
 		
@@ -277,4 +281,24 @@ public class Entity : TidyMapBoundObject {
 		
 	}
 	#endregion
+	
+	public bool withinKillingRange()
+	{
+		if(EntityController.GetInstance().playerEntity == null){
+			return false; // we don't have a player around
+		}
+		Entity playerEntity = EntityController.GetInstance().playerEntity;
+		
+		if( Mathf.Abs(playerEntity.x - this.x) < 2 && Mathf.Abs(playerEntity.y - this.y) < 2){
+			RaycastHit hit;
+			if(Physics.Raycast(this.transform.position,playerEntity.transform.position,out hit)){
+				if(hit.collider == playerEntity.collider){				
+					return true;
+				}
+			}
+			
+		}
+		
+		return false;
+	}
 }

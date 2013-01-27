@@ -3,11 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Collider))]
 public class EnemyColliderPropigator : MonoBehaviour 
 {
 	public Entity playerEntity;
 	public GameObject playerObj;
 	public Action<bool> CollisionPropigate;
+	public event Action OnlyEnteredEvent;
 	
 	void Start()
 	{
@@ -34,6 +36,9 @@ public class EnemyColliderPropigator : MonoBehaviour
 		if(collisionInfo.gameObject == playerObj){
 			if(CollisionPropigate != null)
 				CollisionPropigate(true);
+			if(OnlyEnteredEvent != null){
+				OnlyEnteredEvent();
+			}
 		}
 		//Debug.Log ("Collided with : " + collisionInfo.gameObject.name);
 	}
@@ -46,6 +51,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 		if(collisionInfo.gameObject == playerObj){
 			if(CollisionPropigate != null)
 				CollisionPropigate(false);
+			
 		}
 		//Debug.Log ("stopped colliding with : " + collisionInfo.gameObject.name);
 	}
