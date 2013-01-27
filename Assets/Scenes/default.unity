@@ -74,6 +74,32 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &132982652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 132982653}
+  m_Layer: 0
+  m_Name: EndPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132982653
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132982652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58.7619019, y: -39.1712036, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1749815261}
 --- !u!1 &267193391
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +110,7 @@ GameObject:
   - 4: {fileID: 267193394}
   - 114: {fileID: 267193393}
   - 54: {fileID: 267193392}
+  - 114: {fileID: 267193395}
   m_Layer: 8
   m_Name: UI Root (2D)
   m_TagString: Untagged
@@ -132,6 +159,17 @@ Transform:
   m_Children:
   - {fileID: 1450758287}
   m_Father: {fileID: 0}
+--- !u!114 &267193395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267193391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5105967df974f33a8bcfcb94b82c30, type: 3}
+  m_Name: 
+  popupText: {fileID: 1749815263}
 --- !u!1 &741932601
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +319,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1328665293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 274.218811, y: 73.8269653, z: 0}
+  m_LocalPosition: {x: -204.907288, y: -278.744446, z: 0}
   m_LocalScale: {x: 24, y: 24, z: 1}
   m_Children: []
   m_Father: {fileID: 1749815261}
@@ -298,7 +336,7 @@ MonoBehaviour:
   mMat: {fileID: 2100000, guid: c8ab01848b6614310b367ef2d59afb27, type: 2}
   mTex: {fileID: 0}
   mColor: {r: .559701502, g: .559701502, b: .559701502, a: 1}
-  mPivot: 2
+  mPivot: 5
   mDepth: 0
   mFont: {fileID: 11400000, guid: c4021bd88fe154cc48fec64da170e6db, type: 2}
   mText: You need to keep moving...
@@ -595,6 +633,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1749815261}
   - 114: {fileID: 1749815262}
+  - 114: {fileID: 1749815263}
   m_Layer: 0
   m_Name: PopupText
   m_TagString: Untagged
@@ -609,9 +648,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1749815260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .00109863281}
+  m_LocalPosition: {x: 296.000977, y: 167, z: .00109863281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 132982653}
   - {fileID: 1328665294}
   m_Father: {fileID: 741932602}
 --- !u!114 &1749815262
@@ -627,10 +667,23 @@ MonoBehaviour:
   uiCamera: {fileID: 1140129020}
   widgetContainer: {fileID: 0}
   panelContainer: {fileID: 741932603}
-  side: 8
+  side: 4
   halfPixelOffset: 1
   depthOffset: 0
   relativeOffset: {x: 0, y: 0}
+--- !u!114 &1749815263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1749815260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a05ea0c61a4646d9b1facdf9a7bd9e9, type: 3}
+  m_Name: 
+  label: {fileID: 1328665295}
+  fadeTime: 2
+  endTransform: {fileID: 132982653}
 --- !u!1 &1764396179
 GameObject:
   m_ObjectHideFlags: 0

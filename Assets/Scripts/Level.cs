@@ -40,6 +40,7 @@ public class Level
 	void Begin()
 	{
 		// do intro stuff here
+		PingGUI.PopupText( definition.IntroText );
 		
 		LoadMap();
 	}
