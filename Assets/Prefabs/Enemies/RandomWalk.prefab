@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38858e7b8f3549d4cad5dec1a4c4b12a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0a65e7407ed847d8a1af4de5ad9b9bd, type: 3}
   m_Name: 
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
@@ -150,6 +150,9 @@ MonoBehaviour:
   pathRadius: 5
   idleTime: 0
   timeToMoveSingleTile: 1
+  playerTriggeredMe: 0
+  followPlayerUntilEnd: 0
+  collidersToBeTriggeredBy: []
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
