@@ -10,7 +10,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 	public GameObject playerObj;
 	public Action<bool> CollisionPropigate;
 	public event Action OnlyEnteredEvent;
-	public bool broadcastToAllRandomPathers = false;
+	public bool broadcastToAllRandomPathers = true;
 	
 	void Start()
 	{
