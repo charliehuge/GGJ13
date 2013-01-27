@@ -9,11 +9,8 @@ public class Pulse : MonoBehaviour
 	public float minDistance = 2f;
 	public float interval = 3.0f;
 	
-	GameObject pulseObject;
 	float lastPulseTime;
-	
-	Vector3 startPos;
-	
+		
 	Transform playerTransform;
 	
 	void Start()
@@ -27,7 +24,11 @@ public class Pulse : MonoBehaviour
 		{
 			Entity player = EntityController.GetInstance().playerEntity;
 			if( player )
+			{
 				playerTransform = player.transform;	
+				displayParent.transform.localPosition = Vector3.zero;
+				displayParent.transform.LookAt( playerTransform );
+			}
 		}
 		return playerTransform != null;
 	}
@@ -37,9 +38,6 @@ public class Pulse : MonoBehaviour
 		if( !HavePlayer() ) return;
 		
 		lastPulseTime = Time.time;
-		startPos = transform.parent.position;
-		displayParent.transform.localPosition = Vector3.zero;
-		displayParent.transform.LookAt( playerTransform );
 		
 		if( sound )
 		{
@@ -63,7 +61,7 @@ public class Pulse : MonoBehaviour
 				Fire();
 			
 			displayParent.transform.LookAt( playerTransform );
-			displayParent.transform.position = Vector3.Lerp( startPos, playerTransform.position, lerpAmt );
+			displayParent.transform.position = Vector3.Lerp( transform.position, playerTransform.position, lerpAmt );
 		}
 		else
 		{
