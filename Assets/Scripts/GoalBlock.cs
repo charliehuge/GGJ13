@@ -7,6 +7,10 @@ public class GoalBlock : TidyMapBoundObject
 	static GoalBlock instance;
 	public static GoalBlock Instance { get { return instance; } }
 	
+	public Pulse pulsePrefab;
+	
+	Pulse pulse;
+	
 	void Awake()
 	{
 		if( instance != null )
@@ -16,6 +20,14 @@ public class GoalBlock : TidyMapBoundObject
 		}
 		
 		instance = this;
+		
+		if( pulse == null )
+		{
+			pulse = GameObject.Instantiate( pulsePrefab ) as Pulse;
+			pulse.transform.parent = transform;
+			pulse.transform.localPosition = Vector3.zero;
+			pulse.transform.localRotation = Quaternion.identity;
+		}
 	}
 		
 	#region implemented abstract members of TidyMapBoundObject

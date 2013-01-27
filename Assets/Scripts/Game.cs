@@ -44,7 +44,8 @@ public class Game : MonoBehaviour
 	
 	void LoadNextMap()
 	{
-		instance.LoadLevel( mapCurve, currentLevelIndex + 1 );	
+		if( !debug )
+			instance.LoadLevel( mapCurve, currentLevelIndex + 1 );	
 	}
 	
 	void LoadLevel( MapCurve curve, int mapIndex )
