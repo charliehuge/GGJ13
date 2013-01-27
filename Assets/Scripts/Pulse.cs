@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
 public class Pulse : MonoBehaviour
 {
-	public AudioClip sound;
+	public List<AudioClip> sounds;
 	public GameObject displayParent;
 	public float minDistance = 2f;
 	public float interval = 3.0f;
@@ -37,8 +38,11 @@ public class Pulse : MonoBehaviour
 	
 	bool IsInRange()
 	{
-		return ( range <= 0f ) 
-			|| Vector3.Distance( transform.position, playerTransform.position ) < range;	
+		if( range <= 0f ) return true;
+		
+		float d = Vector3.Distance( transform.position, playerTransform.position );
+		d -= playerTransform.gameObject.GetComponent<ThirdPersonPlayer>().totalHearingRadius;
+		return d < range;
 	}
 	
 	void Fire()
@@ -47,9 +51,9 @@ public class Pulse : MonoBehaviour
 		
 		lastPulseTime = Time.time;
 		
-		if( sound )
+		if( sounds != null && sounds.Count > 0 )
 		{
-			audio.clip = sound;
+			audio.clip = sounds[ Random.Range( 0, sounds.Count - 1 ) ];
 			audio.Play();
 		}
 	}
