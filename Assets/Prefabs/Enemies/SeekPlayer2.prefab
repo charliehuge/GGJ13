@@ -30,7 +30,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: AlwaysSeekEnemy
+  m_Name: SeekPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,6 @@ MonoBehaviour:
   pathRadius: 5
   idleTime: 0
   timeToMoveSingleTile: 1
-  playerDetector: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

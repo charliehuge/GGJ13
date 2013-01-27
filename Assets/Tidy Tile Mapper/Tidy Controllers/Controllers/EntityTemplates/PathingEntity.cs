@@ -196,7 +196,7 @@ public abstract class PathingEntity : Entity {
 	
 	public override void OnUpdateEntity (float deltaTime)
 	{
-		if(isIdle){
+		if(isIdle || targetPosition == Vector3.zero){
 			UpdateIdle(deltaTime);	
 		}
 		else{
@@ -206,6 +206,7 @@ public abstract class PathingEntity : Entity {
 	}
 	
 	void UpdateMovement(float deltaTime){
+		//if(targetPosition == Vector3.zero) return;
 		
 		currentLerpAmount += deltaTime;
 		

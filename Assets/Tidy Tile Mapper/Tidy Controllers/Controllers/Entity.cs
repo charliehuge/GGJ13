@@ -123,8 +123,11 @@ public class Entity : TidyMapBoundObject {
 	public virtual void OnDestroyEntity(){}
 	
 	void Update(){
-		
-		UpdateEntity (Time.deltaTime);
+		/*if(eTransform == null){
+			InitializeEntity();
+		}*/
+		if(eTransform != null)  //only update if we've been initialized
+			UpdateEntity (Time.deltaTime);
 		
 	}
 	

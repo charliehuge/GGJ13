@@ -18,7 +18,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 	{
 		if(playerEntity == null){
 			playerEntity = EntityController.GetInstance().playerEntity;
-			if(playerObj == null)
+			if(playerEntity != null && playerObj == null)
 				playerObj = playerEntity.gameObject;
 		}
 	}

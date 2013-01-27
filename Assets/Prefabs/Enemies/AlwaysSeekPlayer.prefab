@@ -30,7 +30,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Patrolling
+  m_Name: AlwaysSeekPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b634e08bda96dc4f9b475f0d629dc27, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a0491c82a04e4cb097d74524ef62013, type: 3}
   m_Name: 
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
@@ -144,12 +144,10 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
-  patrolAxis: 0
-  timeToMoveSingleTile: 1
-  initialDirection: 1
-  randomiseInitialDirection: 0
-  targetPosition: {x: 0, y: 0, z: 0}
+  currentPath: []
+  pathRadius: 5
   idleTime: 0
+  timeToMoveSingleTile: 1
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

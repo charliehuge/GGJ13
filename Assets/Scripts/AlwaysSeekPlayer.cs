@@ -10,7 +10,8 @@ public class AlwaysSeekPlayer : PathingEntity {
 	
 	public override void OnReachPathEnd (int x, int y, int z)
 	{
-		PathTo(EntityController.GetInstance().playerEntity.x,EntityController.GetInstance().playerEntity.y,EntityController.GetInstance().playerEntity.z);
+		if(EntityController.GetInstance() != null && EntityController.GetInstance().playerEntity != null)
+			PathTo(EntityController.GetInstance().playerEntity.x,EntityController.GetInstance().playerEntity.y,EntityController.GetInstance().playerEntity.z);
 	}
 	
 	public override void OnInitializeEntity ()
