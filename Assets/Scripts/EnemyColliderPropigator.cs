@@ -41,10 +41,10 @@ public class EnemyColliderPropigator : MonoBehaviour
 				OnlyEnteredEvent();
 			}
 			if(broadcastToAllRandomPathers){
-				Object[] randomPathers = GameObject.FindObjectsOfType(typeof(RandomPathingEntityUntilTrigger));
+				UnityEngine.Object[] randomPathers = GameObject.FindObjectsOfType(typeof(RandomPathingEntityUntilTrigger));
 				if(randomPathers != null && randomPathers.Length > 0){
-					foreach(Object pather in randomPathers){
-						RandomPathingEntity mypather = pather as RandomPathingEntityUntilTrigger;
+					foreach(UnityEngine.Object pather in randomPathers){
+						RandomPathingEntityUntilTrigger mypather = pather as RandomPathingEntityUntilTrigger;
 						mypather.PlayerTriggeredMe();
 					}
 				}
