@@ -1,0 +1,89 @@
+{
+  "name": "Demo Graph",
+  "root_path": "Alexis:Hips",
+  "clips": [
+    {
+      "name": "idle",
+      "anim_name": "idle",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "walk",
+      "anim_name": "walk",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "run",
+      "anim_name": "run",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+	{
+      "name": "jump",
+      "anim_name": "jump",
+      "type": "normal",
+      "root_motion_translation": "yz"
+    }
+  ],
+  "layers": [
+    {
+      "name": "full body",
+      "priority": 1,
+      "states": [
+        {
+          "name": "idle",
+          "tree": {
+            "type": "clip",
+            "name": "idle"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+		{
+            "name": "move",
+            "tree": {
+                "type": "blend2d",
+                "control": "ctrl_move",
+                "blend1": {
+                    "type": "clip",
+                    "name": "walk"
+                },
+                "blend2": {
+                    "type": "clip",
+                    "name": "run"
+                }
+			},
+            "transitions": [
+                {
+                    "destination": "*",
+                    "type": "crossfade",
+                    "duration": 0.2
+                }
+            ]
+        },
+		{
+          "name": "jump",
+		  "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "jump"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

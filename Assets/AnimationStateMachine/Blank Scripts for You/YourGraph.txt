@@ -1,0 +1,68 @@
+{
+  "name": "Your Graph",
+  "root_path": "YOUR CHARACTER'S ROOT JOINT NAME HERE",
+  "clips": [
+    {
+      "name": "idle",
+      "anim_name": "IDLE ANIMATION NAME",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "walk",
+      "anim_name": "WALK ANIMATION NAME",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "run",
+      "anim_name": "RUN ANIMATION NAME",
+      "type": "normal",
+      "root_motion_translation": "z"
+    }
+  ],
+  "layers": [
+    {
+      "name": "full body",
+      "priority": 1,
+      "states": [
+        {
+          "name": "idle",
+          "tree": {
+            "type": "clip",
+            "name": "idle"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+		{
+            "name": "move",
+            "tree": {
+                "type": "blend2d",
+                "control": "ctrl_move",
+                "blend1": {
+                    "type": "clip",
+                    "name": "walk"
+                },
+                "blend2": {
+                    "type": "clip",
+                    "name": "run"
+                }
+			},
+            "transitions": [
+                {
+                    "destination": "*",
+                    "type": "crossfade",
+                    "duration": 0.2
+                }
+            ]
+        }
+      ]
+    }
+  ]
+}
