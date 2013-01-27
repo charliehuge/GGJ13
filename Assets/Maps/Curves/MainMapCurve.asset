@@ -37,10 +37,10 @@ MonoBehaviour:
     MapPrefab: {fileID: 11400002, guid: f714021cf71b84d929e7bf8be8389ced, type: 2}
   - Name: 
     IntroText: '[text text text]'
-    MapPrefab: {fileID: 11400002, guid: 89cdaaab2ef004a5d9a02f07791b04a9, type: 2}
+    MapPrefab: {fileID: 11400002, guid: 0629ba79c94034773a451869f61d11de, type: 2}
   - Name: 
     IntroText: Don't go...
-    MapPrefab: {fileID: 11400002, guid: ed8a178359daa4b259aef1055f766506, type: 2}
+    MapPrefab: {fileID: 11400002, guid: 8beaecf7239e14ad986c7c8f55d66028, type: 2}
   - Name: 
     IntroText: Don't go...
     MapPrefab: {fileID: 11400002, guid: 56a52c875a5a24345962789e4c32cfea, type: 2}
