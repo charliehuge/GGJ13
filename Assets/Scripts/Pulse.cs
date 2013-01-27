@@ -9,6 +9,8 @@ public class Pulse : MonoBehaviour
 	public float minDistance = 2f;
 	public float interval = 3.0f;
 	
+	public float range = -1f;
+	
 	float lastPulseTime;
 		
 	Transform playerTransform;
@@ -33,9 +35,15 @@ public class Pulse : MonoBehaviour
 		return playerTransform != null;
 	}
 	
+	bool IsInRange()
+	{
+		return ( range <= 0f ) 
+			|| Vector3.Distance( transform.position, playerTransform.position ) < range;	
+	}
+	
 	void Fire()
 	{
-		if( !HavePlayer() ) return;
+		if( !HavePlayer() || !IsInRange() ) return;
 		
 		lastPulseTime = Time.time;
 		
@@ -51,7 +59,7 @@ public class Pulse : MonoBehaviour
 		if( !HavePlayer() ) return;
 		
 		float distance = Vector3.Distance( transform.parent.position, playerTransform.position );
-		if( distance > 2f )
+		if( distance > minDistance && IsInRange() )
 		{
 			displayParent.SetActive( true );
 			

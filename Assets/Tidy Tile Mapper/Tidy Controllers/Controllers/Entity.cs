@@ -7,6 +7,10 @@ using System.Collections.Generic;
 //Entity is the fundamental base class for moving entities
 public class Entity : TidyMapBoundObject {
 		
+	public Pulse pulsePrefab;
+	public float pulseRange = 5f;
+	Pulse pulse;
+	
 	//Entity type provides a 'category' of entity. You can use this for... entity-specific logic and such
 	public string entityType = "Default";
 	
@@ -34,6 +38,15 @@ public class Entity : TidyMapBoundObject {
 		
 		if(initializeOnAwake){
 			InitializeEntity();
+		}
+		
+		if( pulsePrefab != null && pulse == null )
+		{	
+			pulse = GameObject.Instantiate( pulsePrefab ) as Pulse;
+			pulse.transform.parent = transform;
+			pulse.transform.localPosition = Vector3.zero;
+			pulse.transform.localRotation = Quaternion.identity;
+			pulse.range = pulseRange;
 		}
 	}
 	

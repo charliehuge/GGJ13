@@ -2116,6 +2116,8 @@ MonoBehaviour:
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
   destroyWhenStreaming: 1
+  pulsePrefab: {fileID: 0}
+  pulseRange: 5
   entityType: Default
   anim_idle:
     animationTarget: {fileID: 1666697357}
@@ -3114,6 +3116,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: dcf1f684c53f8432895678b7327ea420, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: dcf1f684c53f8432895678b7327ea420, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
