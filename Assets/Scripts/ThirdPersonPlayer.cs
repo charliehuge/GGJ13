@@ -140,7 +140,6 @@ public class ThirdPersonPlayer : Entity
 	{
 		UpdateGravity();
 		HandleInput();
-		UpdateMovement(Time.deltaTime);
 		
 		//We'll just assure our states are all nice
 		bool moving = inputVector != Vector2.zero;
@@ -162,6 +161,9 @@ public class ThirdPersonPlayer : Entity
 	//Update the falling flags for the character
 	void UpdateGravity(){
 		isFalling = (cc.collisionFlags & CollisionFlags.Below) == 0;
+		
+		if( isFalling )
+			cc.Move( new Vector3( 0f, -1f * gravity * Time.deltaTime, 0f ) );
 	}
 	
 	void HandleInput(){
@@ -178,30 +180,9 @@ public class ThirdPersonPlayer : Entity
 			}
 		}
 	}
-		
-	void UpdateMovement(float deltaTime)
-	{	
-		Vector3 movement = Vector3.zero;
-					
-		if(isFalling) movement.y -= gravity;
-		
-		movement.x += walkSpeed * inputVector.x;
-		movement.z += walkSpeed * inputVector.y;
-		
-		Vector3 facingDir = Vector3.Normalize( new Vector3( movement.x, 0f, movement.z ) );
-		if( facingDir != Vector3.zero )
-		{
-			cc.transform.forward = facingDir;	
-		}
-		
-		movement *= deltaTime;
-		
-		cc.Move(movement);			
-	}
 	
 	void OnDrawGizmos()
 	{
-		Debug.Log("blah " + totalHearingRadius);
 		Gizmos.color = Color.blue;
 		Gizmos.DrawWireSphere( transform.position, totalHearingRadius );
 	}
