@@ -474,6 +474,7 @@ public class RootMotionComputer : MonoBehaviour
 				// append displacement to result
 				dPosition += p;
 			}
+			dPosition=dPosition*0.25f;
 			
 			// scrub the weight back down to 0 so as to not affect sampling of other states
 			aState.weight = 0f;
