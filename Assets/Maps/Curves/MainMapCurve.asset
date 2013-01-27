@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: MainMapCurve
   Levels:
   - Name: 
-    IntroText: 
+    IntroText: You need to keep moving...
     MapPrefab: {fileID: 11400052, guid: 378241edc6ec04f4ab3254574935d67a, type: 2}
   - Name: 
-    IntroText: 
+    IntroText: Please find me...
     MapPrefab: {fileID: 11400506, guid: 587080d50f4ea4079b74ce62f04e4056, type: 2}

@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
 		RenderSettings.ambientLight = ambientLight;
 		
 		if( !debug )
-			LoadLevel( mapCurve, 0 );	
+			LoadLevel( mapCurve, 0 );
 	}
 	
 	public static void FinishCurrentLevel()
