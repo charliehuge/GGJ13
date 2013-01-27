@@ -2,10 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ThirdPersonPlayer.cs">
     <Files>
-      <File FileName="Assets/Tidy Tile Mapper/Tidy Controllers/Controllers/Entity.cs" Line="67" Column="14" />
-      <File FileName="Assets/Scripts/GoalBlock.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Pulse.cs" Line="46" Column="2" />
-      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="150" Column="25" />
+      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="186" Column="1" />
+      <File FileName="Assets/Scripts/RootMotionComputer.cs" Line="510" Column="70" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,6 +24,9 @@
                 </Node>
               </Node>
             </Node>
+          </Node>
+          <Node name="Assembly-UnityScript" expanded="True">
+            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>
