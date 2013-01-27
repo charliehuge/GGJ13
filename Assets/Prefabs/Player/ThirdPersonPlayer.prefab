@@ -3557,8 +3557,8 @@ EllipsoidParticleEmitter:
   maxSize: 80
   minEnergy: 7
   maxEnergy: 8.56999969
-  minEmission: 3
-  maxEmission: 3
+  minEmission: 10
+  maxEmission: 15
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: .800000012, y: 0, z: 0}
   rndVelocity: {x: .00999999978, y: .0299999993, z: 300}
@@ -3817,6 +3817,7 @@ MonoBehaviour:
   - {fileID: 100224}
   - {fileID: 100208}
   - {fileID: 100232}
+  - {fileID: 100256}
   walkSpeed: 2
   gravity: 9.80000019
   bindCameraToPlayer: 1
