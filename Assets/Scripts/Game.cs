@@ -41,6 +41,10 @@ public class Game : MonoBehaviour
 	{
 		instance.LoadNextMap();
 	}
+	public static void ReloadCurrentLevel()
+	{
+		instance.LoadLevel(instance.mapCurve,instance.currentLevelIndex);
+	}
 	
 	void LoadNextMap()
 	{

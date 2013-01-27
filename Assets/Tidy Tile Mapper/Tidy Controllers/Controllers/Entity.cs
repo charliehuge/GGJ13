@@ -141,7 +141,10 @@ public class Entity : TidyMapBoundObject {
 			InitializeEntity();
 		}*/
 		if(withinKillingRange()){
+			
+			Game.ReloadCurrentLevel();
 			PingGUI.PopupText("You died :(");
+			return;
 		}
 		if(eTransform != null)  //only update if we've been initialized
 			UpdateEntity (Time.deltaTime);
