@@ -23,7 +23,7 @@ function lookAtCamera () {
     //print("ROTATION: " + Quaternion.LookRotation(relativePos).eulerAngles.y);
     var yRotation : float = Quaternion.LookRotation(relativePos).eulerAngles.y;
 
-    transform.rotation = Quaternion.Euler(Vector3(startRotation.eulerAngles.x + 90, yRotation - 180, startRotation.eulerAngles.z));
+    transform.rotation = Quaternion.Euler(Vector3(startRotation.eulerAngles.x + 110, yRotation - 180, startRotation.eulerAngles.z));
 
 }
 
