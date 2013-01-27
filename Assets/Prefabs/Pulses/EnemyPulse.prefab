@@ -148,10 +148,16 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7cbe13d7d0fc4d92bb536836768db7f, type: 3}
   m_Name: 
-  sound: {fileID: 8300000, guid: 0be1fa16b22a247cf9ba2b20b0b4aff5, type: 3}
+  sounds:
+  - {fileID: 8300000, guid: 8346cc09a211447a1b391c40670b0ed1, type: 3}
+  - {fileID: 8300000, guid: b583f6ec60076414e94643c282ab3474, type: 3}
+  - {fileID: 8300000, guid: e567018f63be54540bd4cf0082afa39a, type: 3}
+  - {fileID: 8300000, guid: f0ca67cc5bd7f43a682f4680be9edb02, type: 3}
+  - {fileID: 8300000, guid: f17789f2194dd41ea910007ebfdfaa83, type: 3}
   displayParent: {fileID: 100002}
-  minDistance: 2
+  minDistance: 0
   interval: 3
+  range: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
