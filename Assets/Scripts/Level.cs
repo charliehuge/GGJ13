@@ -7,6 +7,7 @@ public class LevelDefinition
 {
 	public string Name = "New Level";
 	public string IntroText = "Some intro text";
+	public bool IsEndCredits = false;
 	public BlockMap MapPrefab;
 }
 
@@ -39,10 +40,17 @@ public class Level
 	
 	void Begin()
 	{
-		// do intro stuff here
-		PingGUI.PopupText( definition.IntroText );
-		
-		LoadMap();
+		if( definition.IsEndCredits )
+		{
+			PingGUI.RollCredits();
+		}
+		else
+		{
+			// do intro stuff here
+			PingGUI.PopupText( definition.IntroText );
+			
+			LoadMap();
+		}
 	}
 	
 	void LoadMap()

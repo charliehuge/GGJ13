@@ -1,10 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 <<<<<<< HEAD
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GoalBlock.cs">
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ThirdPersonPlayer.cs">
+>>>>>>> ch
     <Files>
-      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="169" Column="1" />
+      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="180" Column="47" />
       <File FileName="Assets/Scripts/GoalBlock.cs" Line="11" Column="3" />
+<<<<<<< HEAD
 =======
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PulseRing.cs">
     <Files>
@@ -14,6 +19,9 @@
       <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PulseRing.cs" Line="1" Column="1" />
 >>>>>>> goal art prefab
+=======
+      <File FileName="Assets/LookAtCameraScript.js" Line="1" Column="1" />
+>>>>>>> ch
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,10 +31,14 @@
               <Node name="Scripts" expanded="True">
                 <Node name="GUI" expanded="True" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Node name="GoalBlock.cs" selected="True" />
 =======
                 <Node name="PulseRing.cs" selected="True" />
 >>>>>>> goal art prefab
+=======
+                <Node name="ThirdPersonPlayer.cs" selected="True" />
+>>>>>>> ch
               </Node>
               <Node name="Tidy Tile Mapper" expanded="True">
                 <Node name="Tidy Controllers" expanded="True">
