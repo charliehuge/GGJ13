@@ -13,34 +13,45 @@ MonoBehaviour:
   Levels:
   - Name: 
     IntroText: You need to keep moving...
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400778, guid: a8ad76cb3222f4be7a76f10b482fb8ab, type: 2}
   - Name: 
     IntroText: Don't let them find you.
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: defe1202804be4fd68a18843cfd65b87, type: 2}
   - Name: 
     IntroText: Slowly
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: efd22ab257b8f4aa2a1144fa998bc84b, type: 2}
   - Name: 
     IntroText: '[some text]'
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: a0f72f70f48fc461b9c953af8dbdded5, type: 2}
   - Name: 
     IntroText: '[some more text]'
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: 26626cfb7ca3849a49cc3c75b55f1411, type: 2}
   - Name: 
     IntroText: '[even more text]'
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: 2a02142e759e245aa826fa24727d704d, type: 2}
   - Name: 
     IntroText: '[yep, text]'
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: 2eedd3b8c187048919b08f125e473442, type: 2}
   - Name: 
     IntroText: '[placeholder]'
+    IsEndCredits: 0
     MapPrefab: {fileID: 11400002, guid: f714021cf71b84d929e7bf8be8389ced, type: 2}
   - Name: 
     IntroText: '[text text text]'
-    MapPrefab: {fileID: 11400002, guid: 0629ba79c94034773a451869f61d11de, type: 2}
+    IsEndCredits: 0
+    MapPrefab: {fileID: 11400002, guid: 89cdaaab2ef004a5d9a02f07791b04a9, type: 2}
   - Name: 
     IntroText: Don't go...
-    MapPrefab: {fileID: 11400002, guid: 8beaecf7239e14ad986c7c8f55d66028, type: 2}
+    IsEndCredits: 0
+    MapPrefab: {fileID: 11400002, guid: ed8a178359daa4b259aef1055f766506, type: 2}
   - Name: 
     IntroText: Don't go...
+    IsEndCredits: 1
     MapPrefab: {fileID: 11400002, guid: 56a52c875a5a24345962789e4c32cfea, type: 2}

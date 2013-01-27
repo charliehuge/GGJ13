@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: EnemyPulse
   m_TagString: Untagged
@@ -158,6 +159,27 @@ MonoBehaviour:
   minDistance: 0
   interval: 3
   range: -1
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e57f0b9c503bcf4c8ac5325cda83c09, type: 3}
+  m_Name: 
+  mapName: Demo Level
+  tileSize: {x: 1, y: 1, z: 1}
+  chunkWidth: 5
+  chunkHeight: 5
+  growthAxis: 0
+  levelWidth: 10
+  levelHeight: 10
+  levelDepth: 1
+  blockPrefab: {fileID: 0}
+  randomiseInitialMap: 0
+  useEmptyBlocks: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

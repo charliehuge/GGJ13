@@ -2,6 +2,7 @@
 
 var objectLink : Transform;
 var target : Transform;
+var targetLock : boolean;
 
 internal var startRotation : Quaternion;
 
@@ -28,5 +29,7 @@ function lookAtCamera () {
 }
 
 function moveObject () {
-	transform.position = Vector3(objectLink.position.x, objectLink.position.y, objectLink.position.z);
+	if(targetLock) {
+		transform.position = Vector3(objectLink.position.x, objectLink.position.y, objectLink.position.z);
+	}
 }
