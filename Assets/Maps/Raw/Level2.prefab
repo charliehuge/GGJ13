@@ -4061,7 +4061,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400460}
   - 33: {fileID: 3300306}
-  - 65: {fileID: 6500436}
   - 23: {fileID: 2300306}
   m_Layer: 0
   m_Name: Cube
@@ -4218,7 +4217,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400478}
   - 33: {fileID: 3300312}
-  - 65: {fileID: 6500438}
   - 23: {fileID: 2300312}
   m_Layer: 0
   m_Name: Cube
@@ -20848,30 +20846,6 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100852}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6500436
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100460}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6500438
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100478}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
