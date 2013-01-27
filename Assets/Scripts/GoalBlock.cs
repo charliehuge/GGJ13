@@ -3,24 +3,12 @@ using System.Collections;
 
 public class GoalBlock : TidyMapBoundObject
 {
-	// there can only be one...for now
-	static GoalBlock instance;
-	public static GoalBlock Instance { get { return instance; } }
-	
 	public Pulse pulsePrefab;
 	
 	Pulse pulse;
 	
 	void Awake()
 	{
-		if( instance != null )
-		{
-			GameObject.Destroy( gameObject );
-			return;
-		}
-		
-		instance = this;
-		
 		if( pulse == null )
 		{
 			pulse = GameObject.Instantiate( pulsePrefab ) as Pulse;
