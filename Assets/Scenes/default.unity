@@ -390,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606e29b917d194ea39b2734df3c541a1, type: 3}
   m_Name: 
   Files:
-  - {fileID: 8300000, guid: 9a2bf12092cdb4ae0b0d47cc3bb06b8b, type: 3}
   - {fileID: 8300000, guid: ae91c4fe2534a437c8f4c37ab521297a, type: 3}
 --- !u!82 &1355685733
 AudioSource:
