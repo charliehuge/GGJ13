@@ -1,10 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ThirdPersonPlayer.cs">
-    <Files>
-      <File FileName="Assets/Scripts/ThirdPersonPlayer.cs" Line="186" Column="1" />
-      <File FileName="Assets/Scripts/RootMotionComputer.cs" Line="510" Column="70" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -12,7 +8,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="GUI" expanded="True" />
-                <Node name="ThirdPersonPlayer.cs" selected="True" />
+                <Node name="RootMotionCharacter.cs" selected="True" />
               </Node>
               <Node name="Tidy Tile Mapper" expanded="True">
                 <Node name="Tidy Controllers" expanded="True">
@@ -24,9 +20,6 @@
                 </Node>
               </Node>
             </Node>
-          </Node>
-          <Node name="Assembly-UnityScript" expanded="True">
-            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>
