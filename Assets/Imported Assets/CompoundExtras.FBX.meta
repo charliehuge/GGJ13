@@ -1,0 +1,124 @@
+fileFormatVersion: 2
+guid: 657a4234bcef93248b11aa52cef19720
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Laser Point
+    100004: Sentry Gun
+    100006: Sentry Tripod
+    100008: Lamp
+    100010: Rocket
+    100012: Cardboard Box
+    100014: Crate
+    100016: Barrel
+    100018: Sheet Metal Rusty
+    100020: Sheet Metal Treads
+    100022: Barrel Dead Replacement
+    400000: //RootNode
+    400002: Laser Point
+    400004: Sentry Gun
+    400006: Sentry Tripod
+    400008: Lamp
+    400010: Rocket
+    400012: Cardboard Box
+    400014: Crate
+    400016: Barrel
+    400018: Sheet Metal Rusty
+    400020: Sheet Metal Treads
+    400022: Barrel Dead Replacement
+    2300000: Laser Point
+    2300002: Sentry Gun
+    2300004: Sentry Tripod
+    2300006: Lamp
+    2300008: Rocket
+    2300010: Cardboard Box
+    2300012: Crate
+    2300014: Barrel
+    2300016: Sheet Metal Rusty
+    2300018: Sheet Metal Treads
+    2300020: Barrel Dead Replacement
+    3300000: Laser Point
+    3300002: Sentry Gun
+    3300004: Sentry Tripod
+    3300006: Lamp
+    3300008: Rocket
+    3300010: Cardboard Box
+    3300012: Crate
+    3300014: Barrel
+    3300016: Sheet Metal Rusty
+    3300018: Sheet Metal Treads
+    3300020: Barrel Dead Replacement
+    4300000: Barrel
+    4300002: Crate
+    4300004: Barrel Dead Replacement
+    4300006: Cardboard Box
+    4300008: Rocket
+    4300010: Sheet Metal Treads
+    4300012: Sheet Metal Rusty
+    4300014: Lamp
+    4300016: Sentry Tripod
+    4300018: Sentry Gun
+    4300020: Laser Point
+    6400000: Cardboard Box
+    6400002: Lamp
+    6400004: Rocket
+    6400006: Sentry Tripod
+    6400008: Laser Point
+    6400010: Sentry Gun
+    6400012: Barrel
+    6400014: Crate
+    6400016: Sheet Metal Treads
+    6400018: Barrel Dead Replacement
+    6400020: Sheet Metal Rusty
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

@@ -1,49 +1,71 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Pulse : MonoBehaviour
 {
-	public GameObject prefab;
+	public AudioClip sound;
+	public GameObject displayParent;
+	public float minDistance = 2f;
 	public float interval = 3.0f;
 	
-	GameObject pulseObject;
 	float lastPulseTime;
-	
-	Vector3 startPos, targetPos;
-	
+		
 	Transform playerTransform;
 	
 	void Start()
-	{
-		if( pulseObject == null )
-		{
-			pulseObject = GameObject.Instantiate( prefab ) as GameObject;
-			pulseObject.transform.parent = transform;
-			pulseObject.transform.localPosition = prefab.transform.position;
-			pulseObject.transform.localRotation = Quaternion.identity;
-		}
-		if( playerTransform == null )
-			playerTransform = EntityController.GetInstance().playerEntity.transform;
-		
+	{		
 		Fire();
+	}
+	
+	bool HavePlayer()
+	{
+		if( playerTransform == null )
+		{
+			Entity player = EntityController.GetInstance().playerEntity;
+			if( player )
+			{
+				playerTransform = player.transform;	
+				displayParent.transform.localPosition = Vector3.zero;
+				displayParent.transform.LookAt( playerTransform );
+			}
+		}
+		return playerTransform != null;
 	}
 	
 	void Fire()
 	{
+		if( !HavePlayer() ) return;
+		
 		lastPulseTime = Time.time;
-		startPos = transform.parent.position;
-		targetPos = playerTransform.position;
-		transform.LookAt( playerTransform );
+		
+		if( sound )
+		{
+			audio.clip = sound;
+			audio.Play();
+		}
 	}
 	
 	void Update()
 	{
-		float lerpAmt = ( Time.time - lastPulseTime ) / interval;
+		if( !HavePlayer() ) return;
 		
-		if( lerpAmt > 1f )
-			Fire();
-		
-		transform.LookAt( playerTransform );
-		transform.position = Vector3.Lerp( startPos, playerTransform.position, lerpAmt );
+		float distance = Vector3.Distance( transform.parent.position, playerTransform.position );
+		if( distance > 2f )
+		{
+			displayParent.SetActive( true );
+			
+			float lerpAmt = ( Time.time - lastPulseTime ) / interval;
+			
+			if( lerpAmt > 1f )
+				Fire();
+			
+			displayParent.transform.LookAt( playerTransform );
+			displayParent.transform.position = Vector3.Lerp( transform.position, playerTransform.position, lerpAmt );
+		}
+		else
+		{
+			displayParent.SetActive( false );	
+		}
 	}
 }

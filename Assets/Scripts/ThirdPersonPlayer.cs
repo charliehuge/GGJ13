@@ -8,7 +8,7 @@ public class ThirdPersonPlayer : Entity
 {
 	public float grabDistance = 1f;
 	
-	public Light flashlight;
+	public List<Light> switchableLights;
 	
 	//The speed at which the character walks
 	public float walkSpeed = 2f;
@@ -30,15 +30,18 @@ public class ThirdPersonPlayer : Entity
 	public bool bindCameraToPlayer = true;
 	protected Camera playerCamera;
 	protected GameObject cameraRoot;
-	public float cameraDistance = 5.0f;
-	public float cameraHeightOffset = 1.0f;
 	
-	public float cameraSpeed = 1.0f; // units/sec
+	public Transform camLookAt;
+	
+	public float cameraSpeedIn = 1.0f;
+	public float cameraSpeedOut = 1.0f;
 	
 	public AnimationCurve camDistanceCurve;
 	public AnimationCurve camHeightCurve;
 	
-	private float currentCamLerp = 0.5f;
+	private float currentCamLerp = 0.2f;
+	
+	private float playerIdleTime = 0f;
 	
 	#endregion
 	
@@ -90,8 +93,6 @@ public class ThirdPersonPlayer : Entity
 		
 		
 		playerCamera.transform.parent = cameraRoot.transform;
-		playerCamera.transform.localPosition = new Vector3(0.0f,cameraHeightOffset,-cameraDistance);
-		playerCamera.transform.LookAt( transform );
 	}
 	
 	void LateUpdate(){
@@ -107,9 +108,16 @@ public class ThirdPersonPlayer : Entity
 		cameraRoot.transform.position = transform.position;
 		
 		if( isMoving )
-			currentCamLerp -= Time.deltaTime * cameraSpeed;
+		{
+			playerIdleTime = 0f;
+			currentCamLerp -= Time.deltaTime * cameraSpeedIn;
+		}
 		else
-			currentCamLerp += Time.deltaTime * cameraSpeed;
+		{
+			playerIdleTime += Time.deltaTime;
+			if( playerIdleTime >= 1f )
+				currentCamLerp += Time.deltaTime * cameraSpeedOut;
+		}
 		
 		currentCamLerp = Mathf.Clamp( currentCamLerp, 0f, 1f );
 		
@@ -118,7 +126,7 @@ public class ThirdPersonPlayer : Entity
 		camHeight = camHeightCurve.Evaluate( currentCamLerp );
 		playerCamera.transform.localPosition = new Vector3( 0, camHeight, -camDistance );
 		
-		playerCamera.transform.LookAt( transform );
+		playerCamera.transform.LookAt( camLookAt );
 	}
 	
 	public override void OnUpdateEntity (float deltaTime)
@@ -144,7 +152,10 @@ public class ThirdPersonPlayer : Entity
 		
 		if( Input.GetButtonDown("Jump") )
 		{
-			flashlight.enabled = !flashlight.enabled;	
+			foreach( Light l in switchableLights )
+			{
+				l.enabled = !l.enabled;	
+			}
 		}
 	}
 		

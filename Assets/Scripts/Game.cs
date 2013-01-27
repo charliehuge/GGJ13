@@ -9,13 +9,7 @@ public class Game : MonoBehaviour
 	public bool debug = false;
 	
 	public MapCurve mapCurve;
-	
-	public GUISkin hudSkin;
-	public static GUISkin HUDSkin
-	{
-		get { return instance.hudSkin; }
-	}
-	
+		
 	public Color ambientLight = Color.black;
 	
 	Level currentLevel;
@@ -50,7 +44,8 @@ public class Game : MonoBehaviour
 	
 	void LoadNextMap()
 	{
-		instance.LoadLevel( mapCurve, currentLevelIndex + 1 );	
+		if( !debug )
+			instance.LoadLevel( mapCurve, currentLevelIndex + 1 );	
 	}
 	
 	void LoadLevel( MapCurve curve, int mapIndex )
