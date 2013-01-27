@@ -1,7 +1,53 @@
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
-public class TestEnemyScript : OCDPatrollingEntity {
+
+
+public class TestEnemyScript : PathingEntity {
+	public EnemyColliderPropigator playerDetector;
+	
+	void Start () {
+		playerDetector.CollisionPropigate =(bool foo)=>{};
+	}
+	
+	public override void OnReachPathEnd (int x, int y, int z)
+	{
+		//RandomPathing ();
+	}
+	
+	public override void OnInitializeEntity ()
+	{
+		base.OnInitializeEntity();
+		playerDetector.Init();
+		PathTo(EntityController.GetInstance().playerEntity.x,EntityController.GetInstance().playerEntity.y,EntityController.GetInstance().playerEntity.z);
+	}
+	
+	
+	public void RandomPathing(){
+		//Debug.Log ("REpath");
+		List<Vector3> b = new List<Vector3>();
+		
+		for(int px = x - pathRadius; px <= x + pathRadius; px++){
+			for(int py = y - pathRadius; py <= y + pathRadius; py++){
+				if(CanWalkTo(px,py,z)){
+					b.Add(new Vector3(px,py,z));
+				}
+			}	
+		}
+		
+		if(b.Count <= 0){
+			return;
+		}
+		
+		Vector3 target = b[UnityEngine.Random.Range (0,b.Count)];
+		
+		PathTo((int)target.x,(int)target.y,z);
+	}
+}
+#if false
+public class TestEnemyScript : RandomPathingEntity {
 	public EnemyColliderPropigator playerDetector;
 	float lastTimeDetectedPlayer = 0f;
 	bool playerInSensor = false;
@@ -30,7 +76,7 @@ public class TestEnemyScript : OCDPatrollingEntity {
 	
 	bool CanMoveTo(Vector3 pos)
 	{
-		return CanMoveTo((int)pos.x,(int)pos.y,(int)pos.z);
+		return CanWalkTo((int)pos.x,(int)pos.y,(int)pos.z);
 	}
 	
 	Vector3 findOpenBlockAdjacentToPlayer ()
@@ -126,12 +172,12 @@ public class TestEnemyScript : OCDPatrollingEntity {
 			//base.ProcessPatrolNode();
 		}else{
 			Debug.LogError("Not chasing player");
-			base.ProcessPatrolNode();
+			base.ProcessPathing();
 			//base.ProcessPatrolNode();  // I think this should resume
 			//ProcessPatrolNode();
 		}
 	}
-	
+	/*
 	public override void ProcessPatrolNode(){
 		
 		sourcePosition = eTransform.localPosition;
@@ -199,4 +245,6 @@ public class TestEnemyScript : OCDPatrollingEntity {
 		SetIsMoving(true);
 		
 	}
+	*/
 }
+#endif

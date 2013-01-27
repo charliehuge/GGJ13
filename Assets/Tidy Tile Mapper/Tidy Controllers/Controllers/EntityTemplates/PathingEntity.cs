@@ -46,20 +46,22 @@ public abstract class PathingEntity : Entity {
 		
 		if(currentPath == null || currentPath.Count <= 0){
 			currentPath = new List<Vector3>();
+			Debug.Log ("empty path");
 		}
 		else{
+			Debug.Log ("adding path: " + x + " " + y + " " + z);
 			currentPath.Add(new Vector3(x,y,z));
 		}
 		
 		SetIsIdle(true);
 	}
 	
-	void ProcessPathing(){
+	public void ProcessPathing(){
 				
-		//Debug.Log(name + " Processing pathing at: " + x + "," + y + "," + z);
+		Debug.Log(name + " Processing pathing at: " + x + "," + y + "," + z);
 		
 		if(currentPath.Count <= 0){
-						
+			Debug.Log ("End path");			
 			OnReachPathEnd(x,y,z);
 			
 			return;

@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RandomPathingEntity : PathingEntity {
-		
+	
 	public override void OnReachPathEnd (int x, int y, int z)
 	{
 		RePath ();
 	}
 	
-	void RePath(){
-			
+	public void RePath(){
+			Debug.Log ("REpath");
 		List<Vector3> b = new List<Vector3>();
 		
 		for(int px = x - pathRadius; px <= x + pathRadius; px++){

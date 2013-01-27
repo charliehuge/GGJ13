@@ -16,14 +16,16 @@ public class EnemyColliderPropigator : MonoBehaviour
 	
 	public void Init()
 	{
-		if(playerEntity == null)
+		if(playerEntity == null){
 			playerEntity = EntityController.GetInstance().playerEntity;
-		if(playerObj == null)
-			playerObj = playerEntity.gameObject;
+			if(playerObj == null)
+				playerObj = playerEntity.gameObject;
+		}
 	}
 	
 	void OnTriggerEnter (Collider collisionInfo)
 	{
+		Debug.LogError("detected player in collider");
 		Init ();
 		
 		if(collisionInfo.gameObject == playerObj){
@@ -35,6 +37,7 @@ public class EnemyColliderPropigator : MonoBehaviour
 	
 	void OnTriggerExit(Collider collisionInfo) 
 	{
+		Debug.LogError("lost player in collider");
 		Init ();
 		
 		if(collisionInfo.gameObject == playerObj){
