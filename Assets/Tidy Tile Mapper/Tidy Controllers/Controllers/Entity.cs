@@ -300,14 +300,23 @@ public class Entity : TidyMapBoundObject {
 		if(EntityController.GetInstance().playerEntity == null){
 			return false; // we don't have a player around
 		}
+		if(this.x == 0 && this.y == 0)
+			return false;
 		Entity playerEntity = EntityController.GetInstance().playerEntity;
+		if(playerEntity == null || this == playerEntity){
+			return false;
+		}
 		
 		if( Mathf.Abs(playerEntity.x - this.x) < 2 && Mathf.Abs(playerEntity.y - this.y) < 2){
 			RaycastHit hit;
 			if(Physics.Raycast(this.transform.position,playerEntity.transform.position,out hit)){
-				if(hit.collider == playerEntity.collider){				
+				if(hit.collider == playerEntity.collider){
+					
+					Debug.LogError("You died");
+					//PingGUI.PopupText("You died");
 					return true;
 				}
+				Debug.LogWarning("You Might have died: " + Mathf.Abs(playerEntity.x - this.x) + "-" + playerEntity.x + " and " + this.x +  " vs " + Mathf.Abs(playerEntity.y - this.y)  + "-" + playerEntity.y + " and " + this.y);
 			}
 			
 		}
