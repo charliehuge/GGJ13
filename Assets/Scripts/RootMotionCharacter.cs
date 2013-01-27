@@ -14,9 +14,25 @@ public class RootMotionCharacter : MonoBehaviour
 	public RootMotionComputer computer;
 	public CharacterController character;
 	public MovementMode mode = MovementMode.Human;
+	public Transform cameraHook;
+	
+	//Why do I do this? Because I want to access this object but it doesn't spawn until the player's doing some initialzation. 
+	//And it's 6am. 
+	IEnumerator LazyPause() {
+ Debug.Log("Before Waiting 1s");
+ yield return new WaitForSeconds(1);
+ Debug.Log("After Waiting 1s");
+	cameraHook = GameObject.FindWithTag("MainCamera").transform.parent.transform;	
+}
+	
+	
+	
 	
 	void Start()
 	{
+		cameraHook = transform;
+		StartCoroutine(LazyPause());
+		
 		// validate component references
 		if (computer == null) computer = GetComponent(typeof(RootMotionComputer)) as RootMotionComputer;
 		if (character == null) character = GetComponent(typeof(CharacterController)) as CharacterController;
@@ -45,19 +61,29 @@ public class RootMotionCharacter : MonoBehaviour
 		float throttle = 0f;
 		
 		// turning keys
-		if (Input.GetKey(KeyCode.A)) transform.Rotate(Vector3.down, turningSpeed*Time.deltaTime);
-		if (Input.GetKey(KeyCode.D)) transform.Rotate(Vector3.up, turningSpeed*Time.deltaTime);
+		if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && Time.time > 1.0){ 
+				
+			transform.Rotate(Vector3.down, turningSpeed*Time.deltaTime);
+			//cameraHook.Rotate(Vector3.down, turningSpeed*Time.deltaTime);
+		}
+		if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && Time.time > 1.0){ 
+			transform.Rotate(Vector3.up, turningSpeed*Time.deltaTime);
+			//cameraHook.Rotate(Vector3.up, turningSpeed*Time.deltaTime);
+
+			
+		}
+		
+		cameraHook.rotation = transform.rotation;
 		
 		// forward movement keys
 		// ensure that the locomotion animations always blend from idle to moving at the beginning of their cycles
-		if (Input.GetKeyDown(KeyCode.W) && 
+		if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && 
 			(animation["walking"].weight == 0f || animation["running"].weight == 0f))
 		{
 			animation["walking"].normalizedTime = 0f;
 			animation["running"].normalizedTime = 0f;
 		}
-		if (Input.GetKey(KeyCode.W))
-		{
+		if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))){
 			targetMovementWeight = 1f;
 		}
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) throttle = 1f;

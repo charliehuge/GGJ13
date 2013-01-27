@@ -39,7 +39,7 @@ public class ThirdPersonPlayer : Entity
 	protected GameObject cameraRoot;
 	
 	public Transform camLookAt;
-	
+	public float heightBuffer = 0.1f;
 	public float cameraSpeedIn = 1.0f;
 	public float cameraSpeedOut = 1.0f;
 	
@@ -91,6 +91,8 @@ public class ThirdPersonPlayer : Entity
 			playerCamera = o.AddComponent<Camera>();
 		}
 		
+		
+			if(cameraRoot == null || cameraRoot == transform){
 		cameraRoot = new GameObject("Camera Root");
 		
 		cameraRoot.transform.parent = transform;
@@ -100,6 +102,7 @@ public class ThirdPersonPlayer : Entity
 		
 		
 		playerCamera.transform.parent = cameraRoot.transform;
+		}
 	}
 	
 	void LateUpdate(){
@@ -131,9 +134,11 @@ public class ThirdPersonPlayer : Entity
 		float camDistance, camHeight;
 		camDistance = camDistanceCurve.Evaluate( currentCamLerp );
 		camHeight = camHeightCurve.Evaluate( currentCamLerp );
-		playerCamera.transform.localPosition = new Vector3( 0, camHeight, -camDistance );
+		playerCamera.transform.localPosition = new Vector3( 0, camHeight+heightBuffer, -camDistance );
 		
 		playerCamera.transform.LookAt( camLookAt );
+		playerCamera.transform.Rotate(Vector3.up * 10);
+		//playerCamera.transform.Rotate(Vector3.left * 10);
 	}
 	
 	public override void OnUpdateEntity (float deltaTime)
