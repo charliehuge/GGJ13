@@ -60,9 +60,9 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
-          name: _ReflectColor
-        second: {r: 1, g: 1, b: 1, a: .5}
+          name: _TintColor
+        second: {r: .929026186, g: 1, b: .365671635, a: .501960814}
       data:
         first:
-          name: _TintColor
-        second: {r: .0909091234, g: 1, b: 0, a: .501960814}
+          name: _ReflectColor
+        second: {r: 1, g: 1, b: 1, a: .5}
