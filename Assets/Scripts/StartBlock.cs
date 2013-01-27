@@ -18,4 +18,10 @@ public class StartBlock : MonoBehaviour
 			player.InitializeEntity( b.blockMap );
 		}
 	}
+	
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawCube( transform.position, Vector3.one );
+	}	
 }
