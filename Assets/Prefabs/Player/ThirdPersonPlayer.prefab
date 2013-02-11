@@ -3784,6 +3784,7 @@ MonoBehaviour:
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
   destroyWhenStreaming: 1
+  gizmoColor: {r: .804195642, g: 1, b: 0, a: 1}
   pulsePrefab: {fileID: 0}
   pulseRange: 5
   entityType: Default
@@ -3802,7 +3803,7 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
-  baseHearingRadius: 2
+  baseHearingRadius: 1
   stillHearingRadius: 2
   lightOffHearingRadius: 2
   totalHearingRadius: 0

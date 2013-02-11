@@ -250,6 +250,7 @@ public abstract class PathingEntity : Entity {
 		
 	}
 	
+	/*
 	void OnDrawGizmos(){
 		
 		BlockMap map = parentMap;
@@ -268,5 +269,5 @@ public abstract class PathingEntity : Entity {
 			
 		}
 	}
-	
+	*/
 }

@@ -147,7 +147,7 @@ public class ThirdPersonPlayer : Entity
 		HandleInput();
 		
 		//We'll just assure our states are all nice
-		bool moving = inputVector != Vector2.zero;
+		bool moving = !Mathf.Approximately( inputVector.y, 0f );
 		SetIsIdle( !moving );
 		SetIsMoving( moving );
 		

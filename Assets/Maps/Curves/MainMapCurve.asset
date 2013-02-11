@@ -22,7 +22,7 @@ MonoBehaviour:
     IsIntro: 0
     MapPrefab: {fileID: 11400778, guid: a8ad76cb3222f4be7a76f10b482fb8ab, type: 2}
   - Name: 
-    IntroText: Don't let them find you.
+    IntroText: I trapped one. It won't hurt you.
     IsEndCredits: 0
     IsIntro: 0
     MapPrefab: {fileID: 11400002, guid: defe1202804be4fd68a18843cfd65b87, type: 2}
@@ -37,40 +37,25 @@ MonoBehaviour:
     IsIntro: 0
     MapPrefab: {fileID: 11400002, guid: a0f72f70f48fc461b9c953af8dbdded5, type: 2}
   - Name: 
-    IntroText: I know it's tough, but don't stop now. You're almost here!
+    IntroText: You'll be the one. I know it.
     IsEndCredits: 0
     IsIntro: 0
     MapPrefab: {fileID: 11400002, guid: 26626cfb7ca3849a49cc3c75b55f1411, type: 2}
   - Name: 
-    IntroText: I can help you, I can make you better, but you have to come to me.
+    IntroText: Don't listen to them.
     IsEndCredits: 0
     IsIntro: 0
     MapPrefab: {fileID: 11400002, guid: 2a02142e759e245aa826fa24727d704d, type: 2}
   - Name: 
-    IntroText: "They were supposed to protect us. Now they won\u2019t let me out."
+    IntroText: Let me help you.
     IsEndCredits: 0
     IsIntro: 0
     MapPrefab: {fileID: 11400002, guid: 2eedd3b8c187048919b08f125e473442, type: 2}
   - Name: 
-    IntroText: "You\u2019ll be the one, I know it."
-    IsEndCredits: 0
-    IsIntro: 0
-    MapPrefab: {fileID: 11400002, guid: f714021cf71b84d929e7bf8be8389ced, type: 2}
-  - Name: 
-    IntroText: Don't listen to them.
-    IsEndCredits: 0
-    IsIntro: 0
-    MapPrefab: {fileID: 11400002, guid: 0629ba79c94034773a451869f61d11de, type: 2}
-  - Name: 
-    IntroText: Let me help you.
-    IsEndCredits: 0
-    IsIntro: 0
-    MapPrefab: {fileID: 11400002, guid: 8beaecf7239e14ad986c7c8f55d66028, type: 2}
-  - Name: 
     IntroText: Don't go...
     IsEndCredits: 0
     IsIntro: 0
-    MapPrefab: {fileID: 11400002, guid: 56a52c875a5a24345962789e4c32cfea, type: 2}
+    MapPrefab: {fileID: 11400002, guid: f714021cf71b84d929e7bf8be8389ced, type: 2}
   - Name: 
     IntroText: 
     IsEndCredits: 1

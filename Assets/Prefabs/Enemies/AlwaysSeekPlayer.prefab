@@ -102,8 +102,9 @@ MonoBehaviour:
   parentBlock: {fileID: 0}
   parentMap: {fileID: 0}
   destroyWhenStreaming: 1
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   pulsePrefab: {fileID: 0}
-  pulseRange: 5
+  pulseRange: 3
   entityType: Default
   anim_idle:
     animationTarget: {fileID: 0}

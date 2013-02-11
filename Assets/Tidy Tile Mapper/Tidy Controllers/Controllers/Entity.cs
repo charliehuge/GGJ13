@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 //Entity is the fundamental base class for moving entities
 public class Entity : TidyMapBoundObject {
-		
+	public Color gizmoColor = Color.red;
+	
 	public Pulse pulsePrefab;
 	public float pulseRange = 5f;
 	Pulse pulse;
@@ -34,6 +35,12 @@ public class Entity : TidyMapBoundObject {
 	protected bool arbitraryGroundPointEnabled = false;
 	protected float yGroundOffset = 0.0f;
 		
+	void OnDrawGizmos()
+	{
+		Gizmos.color = gizmoColor;
+		Gizmos.DrawSphere( transform.position, 0.5f );
+	}
+	
 	void Awake(){
 		
 		if(initializeOnAwake){
@@ -143,7 +150,7 @@ public class Entity : TidyMapBoundObject {
 		if(withinKillingRange()){
 			
 			Game.ReloadCurrentLevel();
-			PingGUI.PopupText("You died :(");
+			PingGUI.PopupText("They caught you...");
 			return;
 		}
 		if(eTransform != null)  //only update if we've been initialized
@@ -310,16 +317,15 @@ public class Entity : TidyMapBoundObject {
 			return false;
 		}
 		
-		if( Mathf.Abs(playerEntity.x - this.x) < 2 && Mathf.Abs(playerEntity.y - this.y) < 2){
-			RaycastHit hit;
+		if( Mathf.Abs(playerEntity.x - this.x) < 1 && Mathf.Abs(playerEntity.y - this.y) < 2){
 			Vector3 direction = playerEntity.transform.position - transform.position;  // I strongly suspect this is incorrect
 			
 			RaycastHit[] hits = Physics.RaycastAll(this.transform.position,direction, Vector3.Distance(playerEntity.transform.position,transform.position));
-			foreach(RaycastHit hit2 in hits){
-				if(hit2.collider.gameObject.name.Contains("Wall")){
+			foreach(RaycastHit hit in hits){
+				if(hit.collider.gameObject.name.Contains("Wall")){
 					return false;
 				}
-				Debug.Log ("raycast hit non-terminal: " + hit2.collider.gameObject.name);
+				Debug.Log ("raycast hit non-terminal: " + hit.collider.gameObject.name);
 			}
 			
 			
